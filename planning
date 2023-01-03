@@ -1,0 +1,16 @@
+Object Hide and Seek
+9 tilemaps
+Based off of Roblox’s “Blox Hunt”
+Hider is a random object
+	(could add so they could choose object)
+Objects are things like trees, bushes, chairs, desks, etc.
+Seeker gets 30 seconds to try and memorize the objects in the tilemaps
+Then, Hider gets 1 minute to hide as their object in anywhere
+Then, Seeker gets 2 minutes and 20 lives to find them
+There will be doors on the side of each tile map that leads to the other tilemaps
+Seeker will seek by pressing A
+	when a button pressed:
+if seeker touching hider:
+	seeker wins
+else:
+	lives - 1
