@@ -4,6 +4,7 @@ Based off of Roblox’s “Blox Hunt”
 Hider is a random object
 	(could add so they could choose object)
 Objects are things like trees, bushes, chairs, desks, etc.
+First, these items get randomized throughout each tilemap
 Seeker gets 30 seconds to try and memorize the objects in the tilemaps
 Then, Hider gets 1 minute to hide as their object in anywhere
 Then, Seeker gets 2 minutes and 20 lives to find them
