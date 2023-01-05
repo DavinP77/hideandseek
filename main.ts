@@ -246,6 +246,175 @@ tilemap`level10`,
 tilemap`level11`,
 tilemap`level12`
 ]
+let listsOfListsOfCoordinatesX = [
+[
+0,
+0,
+0,
+0,
+0,
+0
+],
+[
+0,
+0,
+0,
+0,
+0,
+0
+],
+[
+0,
+0,
+0,
+0,
+0,
+0
+],
+[
+0,
+0,
+0,
+0,
+0,
+0
+],
+[
+0,
+0,
+0,
+0,
+0,
+0
+],
+[
+0,
+0,
+0,
+0,
+0,
+0
+],
+[
+0,
+0,
+0,
+0,
+0,
+0
+],
+[
+0,
+0,
+0,
+0,
+0,
+0
+],
+[
+0,
+0,
+0,
+0,
+0,
+0
+]
+]
+let ListsOfListsOfCoordinatesY = [
+[
+0,
+0,
+0,
+0,
+0,
+0
+],
+[
+0,
+0,
+0,
+0,
+0,
+0
+],
+[
+0,
+0,
+0,
+0,
+0,
+0
+],
+[
+0,
+0,
+0,
+0,
+0,
+0
+],
+[
+0,
+0,
+0,
+0,
+0,
+0
+],
+[
+0,
+0,
+0,
+0,
+0,
+0
+],
+[
+0,
+0,
+0,
+0,
+0,
+0
+],
+[
+0,
+0,
+0,
+0,
+0,
+0
+],
+[
+0,
+0,
+0,
+0,
+0,
+0
+]
+]
+for (let index = 0; index <= 8; index++) {
+    listsOfListsOfCoordinatesX[index] = [
+    randint(0, 15),
+    randint(0, 15),
+    randint(0, 15),
+    randint(0, 15),
+    randint(0, 15),
+    randint(0, 15)
+    ]
+}
+for (let index = 0; index <= 8; index++) {
+    ListsOfListsOfCoordinatesY[index] = [
+    randint(0, 15),
+    randint(0, 15),
+    randint(0, 15),
+    randint(0, 15),
+    randint(0, 15),
+    randint(0, 15)
+    ]
+}
+let currentTilemap = 1
 seeker = sprites.create(img`
     . . . . f f f f . . . . . 
     . . f f f f f f f f . . . 
@@ -307,6 +476,7 @@ let _1r1 = sprites.create(img`
     ...............fceeec...............
     ...............ffceec...............
     `, SpriteKind.Player)
+_1r1.setScale(0.5, ScaleAnchor.Middle)
 let _1r2 = sprites.create(img`
     ...............cc...............
     ............ccc65c66............
@@ -341,6 +511,7 @@ let _1r2 = sprites.create(img`
     ..............fef...............
     ...............f................
     `, SpriteKind.Player)
+_1r2.setScale(0.5, ScaleAnchor.Middle)
 let _1r3 = sprites.create(img`
     ......cc66......
     .....c6576c.....
@@ -367,6 +538,7 @@ let _1r3 = sprites.create(img`
     .....eeeeee.....
     .......ee.......
     `, SpriteKind.Player)
+_1r3.setScale(0.5, ScaleAnchor.Middle)
 let _1r4 = sprites.create(img`
     .............6666...............
     ..........666667766.6666........
@@ -401,6 +573,7 @@ let _1r4 = sprites.create(img`
     ...............fee..............
     ................e...............
     `, SpriteKind.Player)
+_1r4.setScale(0.5, ScaleAnchor.Middle)
 let _1r5 = sprites.create(img`
     ......cc66......
     .....c6576c.....
@@ -427,6 +600,7 @@ let _1r5 = sprites.create(img`
     .....eeeeee.....
     .......ee.......
     `, SpriteKind.Player)
+_1r5.setScale(0.5, ScaleAnchor.Middle)
 let _1r6 = sprites.create(img`
     ................86..................
     ...........6688867886...............
@@ -470,6 +644,7 @@ let _1r6 = sprites.create(img`
     ...............fceeec...............
     ...............ffceec...............
     `, SpriteKind.Player)
+_1r6.setScale(0.5, ScaleAnchor.Middle)
 let _2r1 = sprites.create(img`
     ........................
     ........................
@@ -496,6 +671,7 @@ let _2r1 = sprites.create(img`
     ........................
     ........................
     `, SpriteKind.Player)
+_2r1.setScale(0.5, ScaleAnchor.Middle)
 let _2r2 = sprites.create(img`
     ..........bbbbbbbbbbbb..........
     .......bbb331111333333bbb.......
@@ -514,6 +690,7 @@ let _2r2 = sprites.create(img`
     ...........bbbdd111bb...........
     ..........bbbdddd11dbb..........
     `, SpriteKind.Player)
+_2r2.setScale(0.5, ScaleAnchor.Middle)
 let _2r3 = sprites.create(img`
     . . . . c c c c c c . . . . . . 
     . . . c 6 7 7 7 7 6 c . . . . . 
@@ -532,6 +709,7 @@ let _2r3 = sprites.create(img`
     . f 6 1 1 1 1 1 1 6 6 6 f . . . 
     . . c c c c c c c c c f . . . . 
     `, SpriteKind.Player)
+_2r3.setScale(0.5, ScaleAnchor.Middle)
 let _2r4 = sprites.create(img`
     ....................
     ....................
@@ -554,6 +732,7 @@ let _2r4 = sprites.create(img`
     ....................
     ....................
     `, SpriteKind.Player)
+_2r4.setScale(0.5, ScaleAnchor.Middle)
 let _2r5 = sprites.create(img`
     ........................
     ........................
@@ -580,6 +759,7 @@ let _2r5 = sprites.create(img`
     ........................
     ........................
     `, SpriteKind.Player)
+_2r5.setScale(0.5, ScaleAnchor.Middle)
 let _2r6 = sprites.create(img`
     ..........bbbbbbbbbbbb..........
     .......bbb331111333333bbb.......
@@ -598,6 +778,7 @@ let _2r6 = sprites.create(img`
     ...........bbbdd111bb...........
     ..........bbbdddd11dbb..........
     `, SpriteKind.Player)
+_2r6.setScale(0.5, ScaleAnchor.Middle)
 let _3r1 = sprites.create(img`
     . . f f f . . . . . . . . f f f 
     . f f c c . . . . . . f c b b c 
@@ -616,6 +797,7 @@ let _3r1 = sprites.create(img`
     . . f b b b b b b c f . . . . . 
     . . . f f f f f f f . . . . . . 
     `, SpriteKind.Player)
+_3r1.setScale(0.5, ScaleAnchor.Middle)
 let _3r2 = sprites.create(img`
     ..............bbbbbbb...........
     ...........bb66663333baa........
@@ -650,6 +832,7 @@ let _3r2 = sprites.create(img`
     ..........eeeeee................
     ................................
     `, SpriteKind.Player)
+_3r2.setScale(0.5, ScaleAnchor.Middle)
 let _3r3 = sprites.create(img`
     . . . . . . b b b b . . . . . . 
     . . . . b b 3 3 3 3 b b . . . . 
@@ -668,6 +851,7 @@ let _3r3 = sprites.create(img`
     . . . . . b b d 1 1 b . . . . . 
     . . . . . b d d 1 1 b . . . . . 
     `, SpriteKind.Player)
+_3r3.setScale(0.5, ScaleAnchor.Middle)
 let _3r4 = sprites.create(img`
     . . . . . . c c c c c c . . . . 
     . . . . c c b b d d d d c . . . 
@@ -686,6 +870,7 @@ let _3r4 = sprites.create(img`
     c c c c c c c c b b b b b b c c 
     c c c c c c c c c c c c c c c c 
     `, SpriteKind.Player)
+_3r4.setScale(0.5, ScaleAnchor.Middle)
 let _3r5 = sprites.create(img`
     . . . . . . c c c c c c . . . . 
     . . . . c c b b d d d d c . . . 
@@ -704,6 +889,7 @@ let _3r5 = sprites.create(img`
     c c c c c c c c b b b b b b c c 
     c c c c c c c c c c c c c c c c 
     `, SpriteKind.Player)
+_3r5.setScale(0.5, ScaleAnchor.Middle)
 let _3r6 = sprites.create(img`
     . . . . . . b b b b . . . . . . 
     . . . . b b 3 3 3 3 b b . . . . 
@@ -722,659 +908,950 @@ let _3r6 = sprites.create(img`
     . . . . . b b d 1 1 b . . . . . 
     . . . . . b d d 1 1 b . . . . . 
     `, SpriteKind.Player)
+_3r6.setScale(0.5, ScaleAnchor.Middle)
 let _4r1 = sprites.create(img`
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
+    .cccccccccccccc.
+    cbddddddddddddbc
+    cddddddddddddddc
+    cddddddddddddddc
+    cddddddddddddddc
+    cddddddddddddddc
+    cddddddddddddddc
+    cddddddddddddddc
+    cdbbbbbbbbbbbbdc
+    cbbbbbbbbbbbbbbc
+    cbddddddddddddbc
+    cbcbbbcbbcbbbcbc
+    fbcbbbcddcbbbcbf
+    fbcbbbbccbbbbcbf
+    fbccccccccccccbf
+    fbbbbbbbbbbbbbbf
+    fbddddddddddddbf
+    fbcbbbcbbcbbbcbf
+    fbcbbbcddcbbbcbf
+    fbcbbbbccbbbbcbf
+    fbccccccccccccbf
+    fbbbbbbbbbbbbbbf
+    fbffffffffffffbf
+    ffffffffffffffff
     `, SpriteKind.Player)
+_4r1.setScale(0.5, ScaleAnchor.Middle)
 let _4r2 = sprites.create(img`
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
+    . . . b b b b b b b b b . . . . 
+    . . b 1 d d d d d d d 1 b . . . 
+    . b 1 1 1 1 1 1 1 1 1 1 1 b . . 
+    . b d b c c c c c c c b d b . . 
+    . b d c 6 6 6 6 6 6 6 c d b . . 
+    . b d c 6 d 6 6 6 6 6 c d b . . 
+    . b d c 6 6 6 6 6 6 6 c d b . . 
+    . b d c 6 6 6 6 6 6 6 c d b . . 
+    . b d c 6 6 6 6 6 6 6 c d b . . 
+    . b d c c c c c c c c c d b . . 
+    . c b b b b b b b b b b b c . . 
+    c b c c c c c c c c c c c b c . 
+    c 1 d d d d d d d d d d d 1 c . 
+    c 1 d 1 1 d 1 1 d 1 1 d 1 1 c . 
+    c b b b b b b b b b b b b b c . 
+    c c c c c c c c c c c c c c c . 
     `, SpriteKind.Player)
+_4r2.setScale(0.5, ScaleAnchor.Middle)
 let _4r3 = sprites.create(img`
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
+    ...cccccccccccccccccc...
+    ..cbddddddddddddddddbc..
+    .cddddddddddddddddddddc.
+    .cddbbbbbbbbbbbbbbbbddc.
+    .cdbbbbbbbbbbbbbbbbbbdc.
+    .cdbbbbbbbbbbbbbbbbbbdc.
+    cbbbccccccccccccccccbbbc
+    cddcbddddddddddddddbcddc
+    cddcddddddddddddddddcddc
+    cddcddddddddddddddddcddc
+    cddcddddddddddddddddcddc
+    cbdcddddddddddddddddcdbc
+    ccbbbbbbbbbbbbbbbbbbbbcc
+    ccbbbbbbbbbbbbbbbbbbbbcc
+    cccccccccccccccccccccccc
+    ..cbbc............cbbc..
     `, SpriteKind.Player)
+_4r3.setScale(0.5, ScaleAnchor.Middle)
 let _4r4 = sprites.create(img`
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
+    ...cccccccccccccccccc...
+    ..cd5555555555555555dc..
+    .c55555555555555555555c.
+    .c55333333333333333355c.
+    .c53333333333333333335c.
+    .c53333333333333333335c.
+    c333cccccccccccccccc333c
+    c55c3555555555555553c55c
+    c55c5555555555555555c55c
+    c55c5555555555555555c55c
+    c55c5555555555555555c55c
+    c35c5555555555555555c53c
+    cc33333333333333333333cc
+    cc33333333333333333333cc
+    cccccccccccccccccccccccc
+    ..cbbc............cbbc..
     `, SpriteKind.Player)
+_4r4.setScale(0.5, ScaleAnchor.Middle)
 let _4r5 = sprites.create(img`
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
+    . . . b b b b b b b b b . . . . 
+    . . b 1 d d d d d d d 1 b . . . 
+    . b 1 1 1 1 1 1 1 1 1 1 1 b . . 
+    . b d b c c c c c c c b d b . . 
+    . b d c 6 6 6 6 6 6 6 c d b . . 
+    . b d c 6 d 6 6 6 6 6 c d b . . 
+    . b d c 6 6 6 6 6 6 6 c d b . . 
+    . b d c 6 6 6 6 6 6 6 c d b . . 
+    . b d c 6 6 6 6 6 6 6 c d b . . 
+    . b d c c c c c c c c c d b . . 
+    . c b b b b b b b b b b b c . . 
+    c b c c c c c c c c c c c b c . 
+    c 1 d d d d d d d d d d d 1 c . 
+    c 1 d 1 1 d 1 1 d 1 1 d 1 1 c . 
+    c b b b b b b b b b b b b b c . 
+    c c c c c c c c c c c c c c c . 
     `, SpriteKind.Player)
+_4r5.setScale(0.5, ScaleAnchor.Middle)
 let _4r6 = sprites.create(img`
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
+    .cccccccccccccc.
+    cbddddddddddddbc
+    cddddddddddddddc
+    cddddddddddddddc
+    cddddddddddddddc
+    cddddddddddddddc
+    cddddddddddddddc
+    cddddddddddddddc
+    cdbbbbbbbbbbbbdc
+    cbbbbbbbbbbbbbbc
+    cbddddddddddddbc
+    cbcbbbcbbcbbbcbc
+    fbcbbbcddcbbbcbf
+    fbcbbbbccbbbbcbf
+    fbccccccccccccbf
+    fbbbbbbbbbbbbbbf
+    fbddddddddddddbf
+    fbcbbbcbbcbbbcbf
+    fbcbbbcddcbbbcbf
+    fbcbbbbccbbbbcbf
+    fbccccccccccccbf
+    fbbbbbbbbbbbbbbf
+    fbffffffffffffbf
+    ffffffffffffffff
     `, SpriteKind.Player)
+_4r6.setScale(0.5, ScaleAnchor.Middle)
 let _5r1 = sprites.create(img`
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
+    . . 6 6 6 6 . . 
+    . 6 d 4 4 4 6 . 
+    6 1 b 1 1 4 d 6 
+    c 1 b b 4 4 1 c 
+    . c b b b d c . 
+    . . c c c c . . 
     `, SpriteKind.Player)
+_5r1.setScale(0.5, ScaleAnchor.Middle)
 let _5r2 = sprites.create(img`
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
+    .............cc.
+    ............cbbc
+    ............cbbc
+    ...........bdcc.
+    ...........bdbb.
+    ..........bddc..
+    ..........bdbb..
+    .........bddc...
+    .........bdbb...
+    ........bddc....
+    ........bdbb....
+    .......bddc.....
+    .......bdbb.....
+    ......bddc......
+    ......bdbb......
+    .....bddc.......
+    .....bdbb.......
+    ....bddc........
+    ....bdbb........
+    ...bddc.........
+    ...bdbb.........
+    ..bddc..........
+    ..bdbb..........
+    .bddc...........
+    .bdbb...........
+    b1dc............
+    b11c............
+    b11c............
+    b11c.........cc.
+    b11c........cbbc
+    b11c........cbbc
+    b11c.......bdcc.
+    b11c.......bdbb.
+    b11c......bddc..
+    b11bccc...bdbb..
+    b11bbbbcccddc...
+    b11bcccbccdbb...
+    b11b..ccbddc....
+    b11b...ccdbbc...
+    b11b...bddcbc...
+    b11b...bdbbcbc..
+    b11b..bddc.fbc..
+    b11b..bdbb.fbf..
+    b11b.bddc..fcf..
+    b11b.bdbb..fcf..
+    b11bbddc...fcf..
+    b11bbdbb...fcf..
+    b11bddc...cfcfc.
+    b11ddbb..cbfcfbc
+    b1dddc...cdfffdc
+    b1ddbb...cdcfcdc
+    cdddc....cbdddbc
+    cddbb....cbbbbbc
+    cddc.....cbbbbbc
+    cdbb.....cbbbbbc
+    .cc......cbbbbbc
+    .........cbbbbbc
+    .........cbbbbbc
+    .........cbbbbbc
+    .........8bbbbb8
+    .........8bbbbb8
+    .........6bbbbb6
+    ..........6bbb6.
+    ...........666..
     `, SpriteKind.Player)
+_5r2.setScale(0.5, ScaleAnchor.Middle)
 let _5r3 = sprites.create(img`
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
+    ....................
+    ....................
+    ....................
+    ....................
+    ....................
+    ....................
+    ........dd55........
+    ........5555........
+    .........44.........
+    ........dddd........
+    ........dddd........
+    .......dddddd.......
+    .......dddddd.......
+    .......dddddd.......
+    .......dddddd.......
+    .......dddddd.......
+    .......dddddd.......
+    ........dddd........
+    ........4444........
+    ....................
     `, SpriteKind.Player)
+_5r3.setScale(0.5, ScaleAnchor.Middle)
 let _5r4 = sprites.create(img`
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
+    ...........ccccc66666...........
+    ........ccc4444444444666........
+    ......cc444444444bb4444466......
+    .....cb4444bb4444b5b444444b.....
+    ....eb4444b5b44444b44444444b....
+    ...ebb44444b4444444444b444446...
+    ..eb6bb444444444bb444b5b444446..
+    ..e6bb5b44444444b5b444b44bb44e..
+    .e66b4b4444444444b4444444b5b44e.
+    .e6bb444444444444444444444bb44e.
+    eb66b44444bb444444444444444444be
+    eb66bb444b5b44444444bb44444444be
+    fb666b444bb444444444b5b4444444bf
+    fcb666b44444444444444bb444444bcf
+    .fbb6666b44444444444444444444bf.
+    .efbb66666bb4444444444444444bfe.
+    .86fcbb66666bbb44444444444bcc688
+    8772effcbbbbbbbbbbbbbbbbcfc22778
+    87722222cccccccccccccccc22226678
+    f866622222222222222222222276686f
+    fef866677766667777776667777fffef
+    fbff877768f86777777666776fffffbf
+    fbeffeefffeff7766688effeeeefeb6f
+    f6bfffeffeeeeeeeeeeeeefeeeeebb6e
+    f66ddfffffeeeffeffeeeeeffeedb46e
+    .c66ddd4effffffeeeeeffff4ddb46e.
+    .fc6b4dddddddddddddddddddb444ee.
+    ..ff6bb444444444444444444444ee..
+    ....ffbbbb4444444444444444ee....
+    ......ffebbbbbb44444444eee......
+    .........fffffffcccccee.........
+    ................................
     `, SpriteKind.Player)
+_5r4.setScale(0.5, ScaleAnchor.Middle)
 let _5r5 = sprites.create(img`
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
+    . . 6 6 6 6 . . 
+    . 6 d 4 4 4 6 . 
+    6 1 b 1 1 4 d 6 
+    c 1 b b 4 4 1 c 
+    . c b b b d c . 
+    . . c c c c . . 
     `, SpriteKind.Player)
+_5r5.setScale(0.5, ScaleAnchor.Middle)
 let _5r6 = sprites.create(img`
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
+    ....................
+    ....................
+    ....................
+    ....................
+    ....................
+    ....................
+    ........dd55........
+    ........5555........
+    .........44.........
+    ........dddd........
+    ........dddd........
+    .......dddddd.......
+    .......dddddd.......
+    .......dddddd.......
+    .......dddddd.......
+    .......dddddd.......
+    .......dddddd.......
+    ........dddd........
+    ........4444........
+    ....................
     `, SpriteKind.Player)
+_5r6.setScale(0.5, ScaleAnchor.Middle)
 let _6r1 = sprites.create(img`
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
+    ......................bbb.......
+    ....................bb333b......
+    .................bbb333d33b.....
+    ................bb333333d3a.....
+    ..............bb33332eeeedba....
+    ............bbb333323eee2e3a....
+    ..........bbd333333e22222ed3a...
+    .......bbbdd3333333e22222edda...
+    ......bb3d333333333be222eb3d3a..
+    ...bbb3dd33333333333beeeb33d3a..
+    ..b3ddd33333333333333333333dda..
+    bbddd3333333333333333333333dd3a.
+    b33dddddd3333333333333333333d3a.
+    bb3333333ddddd33333333333333dda.
+    bbbbbbb333dd33dddddddddd3333ddba
+    b55553bbbbbb3333dd33333ddd33dd3a
+    b555555555553bbbbbbbb33333dddd3a
+    bd555555555555555dddbaaaaab3d3ba
+    bb55555555555555555dddddddbb33ba
+    b3bb35555555555d5555d55dddddbbba
+    b33333bbb355dd55555d555ddddddbba
+    b5555d333333bbb35dddddd55ddddbba
+    b5d555dd5553333bbbbb3ddddddddb3a
+    b5d555555555555dd3333bbbbbb3db3a
+    bd5d555555d55555dd555ddbbbbbbb3a
+    bbb55dd555555555555555ddddddbb3a
+    ...bbbbdd555ddd5555ddddddddddb3a
+    .......bbbb555555d5ddd5ddddddb3a
+    ...........bbbb55555555555dd533a
+    ...............bbbbddd5d55d5b3ba
+    ...................bbbbddddb3ba.
+    .......................bbbaaaa..
     `, SpriteKind.Player)
+_6r1.setScale(0.5, ScaleAnchor.Middle)
 let _6r2 = sprites.create(img`
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
+    ...bbccccccbb...
+    ..bdddddddd1db..
+    .bddbbbbbbbbddb.
+    .cdbbbbbbbbbbdc.
+    .cbbbccccccbbbc.
+    .cbbc111111cbbc.
+    .fbcd111111dcbf.
+    f66cdd1111ddc66f
+    f6cccbbbbbbccc6f
+    fcbb33333333bbcf
+    fbb3333333333bbf
+    fbb3d111111d3bbf
+    fbd1111111111dbf
+    fdd1111111111ddf
+    fdd1111111111ddf
+    fdd1111111111ddf
+    fddbbccccccbbddf
+    fdbdddddddd1dbdf
+    cbddbbbbbbbbddbf
+    ccdbbbbbbbbbbdcc
+    ccbccccccccccbcc
+    .cccccccccccccc.
+    .fbbfbbbbbbfbbf.
+    ..ff........ff..
     `, SpriteKind.Player)
+_6r2.setScale(0.5, ScaleAnchor.Middle)
 let _6r3 = sprites.create(img`
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
+    . . . . . f c c c c f . . . . . 
+    . . c c f b b 3 3 b b f c c . . 
+    . c b 3 3 b b c c b b 3 3 b c . 
+    . f 3 c c c b c c b c c c 3 f . 
+    f c b b c c b c c b c c b b c f 
+    c 3 c c b c c c c c c b c c 3 c 
+    c 3 c c c c c c c c c c c c 3 c 
+    . f b b c c c c c c c c b b f . 
+    . . f b b c 8 9 9 8 c b b f . . 
+    . . c c c f 9 3 1 9 f c c c . . 
+    . c 3 f f f 9 3 3 9 f f f 3 c . 
+    c 3 f f f f 8 9 9 8 f f f f 3 c 
+    f 3 c c f f f f f f f f c c 3 f 
+    f b 3 c b b f b b f b b c 3 b f 
+    . c b b 3 3 b 3 3 b 3 3 b b c . 
+    . . f f f f f f f f f f f f . . 
     `, SpriteKind.Player)
+_6r3.setScale(0.5, ScaleAnchor.Middle)
 let _6r4 = sprites.create(img`
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
+    ...................cc...
+    ...............cccc63c..
+    ..............c633336c..
+    ..........cc.c6cc33333c.
+    .........b55c6c55c33333c
+    .........ff5c6c5ff33333c
+    .........ff5c6c5ff6333cc
+    .........b553c355c6666cc
+    ..........b55355c333333c
+    .........cc55555bcc3333c
+    ........c5545554b55c33c.
+    ........b54b4444bb5cbb..
+    ........c455b4b5554c45b.
+    ........c555c4c555c4c5c.
+    ........c5555c5555c4c5c.
+    .........ccccccccc..ccc.
     `, SpriteKind.Player)
+_6r4.setScale(0.5, ScaleAnchor.Middle)
 let _6r5 = sprites.create(img`
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
+    ..........bbbbbbbbbbbb..........
+    .......bbb331111333333bbb.......
+    .....cbb3331111113333333bbb.....
+    ....cb33333311113333333111db....
+    ...cb3111133333333333311111db...
+    .ccbb1111113333333333311111ddcc.
+    ccbbd1111113333333333331111ddbcc
+    cbbbdd11111333333111333311ddbbbc
+    cbbbdddd1133333311111333bbbbbbbc
+    .cbbbddddbbb33331111dbbbbbbbbbc.
+    .ccbbbbbbbbbbbbbbdddbbbbbbbbbcc.
+    ...cccbbbbbbbbbbbbbbbbbbbbccc...
+    ......cccccccccccccccccccc......
+    ............bbbd11bb............
+    ...........bbbdd111bb...........
+    ..........bbbdddd11dbb..........
     `, SpriteKind.Player)
+_6r5.setScale(0.5, ScaleAnchor.Middle)
 let _6r6 = sprites.create(img`
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
+    ......................bbb.......
+    ....................bb333b......
+    .................bbb333d33b.....
+    ................bb333333d3a.....
+    ..............bb33332eeeedba....
+    ............bbb333323eee2e3a....
+    ..........bbd333333e22222ed3a...
+    .......bbbdd3333333e22222edda...
+    ......bb3d333333333be222eb3d3a..
+    ...bbb3dd33333333333beeeb33d3a..
+    ..b3ddd33333333333333333333dda..
+    bbddd3333333333333333333333dd3a.
+    b33dddddd3333333333333333333d3a.
+    bb3333333ddddd33333333333333dda.
+    bbbbbbb333dd33dddddddddd3333ddba
+    b55553bbbbbb3333dd33333ddd33dd3a
+    b555555555553bbbbbbbb33333dddd3a
+    bd555555555555555dddbaaaaab3d3ba
+    bb55555555555555555dddddddbb33ba
+    b3bb35555555555d5555d55dddddbbba
+    b33333bbb355dd55555d555ddddddbba
+    b5555d333333bbb35dddddd55ddddbba
+    b5d555dd5553333bbbbb3ddddddddb3a
+    b5d555555555555dd3333bbbbbb3db3a
+    bd5d555555d55555dd555ddbbbbbbb3a
+    bbb55dd555555555555555ddddddbb3a
+    ...bbbbdd555ddd5555ddddddddddb3a
+    .......bbbb555555d5ddd5ddddddb3a
+    ...........bbbb55555555555dd533a
+    ...............bbbbddd5d55d5b3ba
+    ...................bbbbddddb3ba.
+    .......................bbbaaaa..
     `, SpriteKind.Player)
+_6r6.setScale(0.5, ScaleAnchor.Middle)
 let _7r1 = sprites.create(img`
     . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
+    . . . . . . 2 2 2 2 2 2 2 2 . . 
+    . . . . . 2 c 2 2 2 2 2 2 4 2 . 
+    . . . . 2 c c 2 2 2 2 2 2 4 c 2 
+    . . d 2 4 c c 2 4 4 4 4 4 4 c c 
+    . d 2 2 4 c b e e e e e e e 2 c 
+    . 2 2 2 4 b e e b b b e b b e 2 
+    . 2 2 2 2 2 e b b b b e b b b e 
+    . 2 2 2 2 e 2 2 2 2 2 e 2 2 2 e 
+    . 2 d d 2 e f e e e f e e e e e 
+    . d d 2 e e e f e e f e e e e e 
+    . e e e e e e e f f f e e e e e 
+    . e e e e f f f e e e e f f f f 
+    . . . e f f f f f e e f f f f f 
+    . . . . f f f f . . . . f f f . 
     . . . . . . . . . . . . . . . . 
     `, SpriteKind.Player)
+_7r1.setScale(0.5, ScaleAnchor.Middle)
 let _7r2 = sprites.create(img`
     . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    `, SpriteKind.Player)
-_7r1 = sprites.create(img`
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
+    . . . . . . 3 3 3 3 3 3 3 3 . . 
+    . . . . . 3 c 3 3 3 3 3 3 d 3 . 
+    . . . . 3 c c 3 3 3 3 3 3 d c 3 
+    . . d 3 d c c 3 d d d d d d c c 
+    . d 3 3 d c b a a a a a a a 3 c 
+    . 3 3 3 d b a a b b b a b b a 3 
+    . 3 3 3 3 3 a b b b b a b b b a 
+    . 3 3 3 3 a 3 3 3 3 3 a 3 3 3 a 
+    . 3 d d 3 a f a a a f a a a a a 
+    . d d 3 a a a f a a f a a a a a 
+    . a a a a a a a f f f a a a a a 
+    . a a a a f f f a a a a f f f f 
+    . . . a f f f f f a a f f f f f 
+    . . . . f f f f . . . . f f f . 
     . . . . . . . . . . . . . . . . 
     `, SpriteKind.Player)
-_7r1 = sprites.create(img`
+_7r2.setScale(0.5, ScaleAnchor.Middle)
+let _7r3 = sprites.create(img`
     . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    `, SpriteKind.Player)
-_7r1 = sprites.create(img`
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
+    . . . . 6 6 6 6 6 6 6 6 . . . . 
+    . . . 6 9 6 6 6 6 6 6 c 6 . . . 
+    . . 6 c 9 6 6 6 6 6 6 c c 6 . . 
+    . 6 c c 9 9 9 9 9 9 6 c c 9 6 d 
+    . 6 c 6 8 8 8 8 8 8 8 b c 9 6 6 
+    . 6 6 8 b b 8 b b b 8 8 b 9 6 6 
+    . 6 8 b b b 8 b b b b 8 6 6 6 6 
+    . 8 8 6 6 6 8 6 6 6 6 6 8 6 6 6 
+    . 8 8 8 8 8 8 f 8 8 8 f 8 6 d d 
+    . 8 8 8 8 8 8 f 8 8 f 8 8 8 6 d 
+    . 8 8 8 8 8 8 f f f 8 8 8 8 8 8 
+    . 8 f f f f 8 8 8 8 f f f 8 8 8 
+    . . f f f f f 8 8 f f f f f 8 . 
+    . . . f f f . . . . f f f f . . 
     . . . . . . . . . . . . . . . . 
     `, SpriteKind.Player)
-_7r1 = sprites.create(img`
+_7r3.setScale(0.5, ScaleAnchor.Middle)
+let _7r4 = sprites.create(img`
+    . . . . . . . 8 8 8 8 8 . . . . 
+    . . . . . 8 8 6 6 6 6 6 8 . . . 
+    . . . . 8 8 6 6 6 6 6 6 6 8 . . 
+    . . . . 8 9 7 6 6 6 6 6 7 b 8 . 
+    . . 8 8 9 9 7 7 6 6 6 6 7 9 b 8 
+    . 8 6 6 9 9 7 7 7 6 6 6 7 9 9 8 
+    8 6 6 6 9 9 6 7 7 7 7 7 6 9 9 8 
+    8 6 6 6 9 9 8 8 8 8 8 8 8 9 9 8 
+    8 6 6 6 9 b 8 b b b 8 b 8 b 9 8 
+    8 6 8 8 8 8 b b b b 8 b b 8 b 8 
+    8 8 3 3 8 8 6 6 6 6 8 6 6 8 8 8 
+    8 3 3 8 8 8 8 8 8 8 8 8 8 8 8 8 
+    8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 
+    8 8 8 8 f f f 8 8 8 8 f f f 8 8 
+    . 8 8 f b c c f 8 8 f b c c f . 
+    . . . . b b f . . . . b b f . . 
+    `, SpriteKind.Player)
+_7r4.setScale(0.5, ScaleAnchor.Middle)
+let _7r5 = sprites.create(img`
     . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
+    . . . . . . 2 2 2 2 2 2 2 2 . . 
+    . . . . . 2 c 2 2 2 2 2 2 4 2 . 
+    . . . . 2 c c 2 2 2 2 2 2 4 c 2 
+    . . d 2 4 c c 2 4 4 4 4 4 4 c c 
+    . d 2 2 4 c b e e e e e e e 2 c 
+    . 2 2 2 4 b e e b b b e b b e 2 
+    . 2 2 2 2 2 e b b b b e b b b e 
+    . 2 2 2 2 e 2 2 2 2 2 e 2 2 2 e 
+    . 2 d d 2 e f e e e f e e e e e 
+    . d d 2 e e e f e e f e e e e e 
+    . e e e e e e e f f f e e e e e 
+    . e e e e f f f e e e e f f f f 
+    . . . e f f f f f e e f f f f f 
+    . . . . f f f f . . . . f f f . 
     . . . . . . . . . . . . . . . . 
     `, SpriteKind.Player)
+_7r5.setScale(0.5, ScaleAnchor.Middle)
+let _7r6 = sprites.create(img`
+    . . . . . . . . . . . . . . . . 
+    . . . . . . 3 3 3 3 3 3 3 3 . . 
+    . . . . . 3 c 3 3 3 3 3 3 d 3 . 
+    . . . . 3 c c 3 3 3 3 3 3 d c 3 
+    . . d 3 d c c 3 d d d d d d c c 
+    . d 3 3 d c b a a a a a a a 3 c 
+    . 3 3 3 d b a a b b b a b b a 3 
+    . 3 3 3 3 3 a b b b b a b b b a 
+    . 3 3 3 3 a 3 3 3 3 3 a 3 3 3 a 
+    . 3 d d 3 a f a a a f a a a a a 
+    . d d 3 a a a f a a f a a a a a 
+    . a a a a a a a f f f a a a a a 
+    . a a a a f f f a a a a f f f f 
+    . . . a f f f f f a a f f f f f 
+    . . . . f f f f . . . . f f f . 
+    . . . . . . . . . . . . . . . . 
+    `, SpriteKind.Player)
+_7r6.setScale(0.5, ScaleAnchor.Middle)
 let _8r1 = sprites.create(img`
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
+    . . . . . . . . 
+    . . . . . . . . 
+    . . . . . . . . 
+    . . . . . . . . 
+    . b b d d b b . 
+    b 1 1 3 3 1 1 b 
+    b 1 3 5 5 3 1 b 
+    b d 3 5 5 3 d b 
+    c 1 1 d d 1 1 c 
+    c d 1 d d 1 d c 
+    . c c 7 6 c c . 
+    . . 6 7 6 . . . 
+    . . 6 6 8 8 8 6 
+    . . 6 8 7 7 7 6 
+    . . 8 7 7 7 6 . 
+    . . 8 8 8 6 . . 
     `, SpriteKind.Player)
-_8r1 = sprites.create(img`
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
+_8r1.setScale(0.5, ScaleAnchor.Middle)
+let _8r2 = sprites.create(img`
+    .cccccccccccccc.
+    cb777777777777bc
+    c77777777777777c
+    c77777777777777c
+    c77777777777777c
+    c77777777777777c
+    c77777777777777c
+    c77777777777777c
+    c76666666666667c
+    c66666666666666c
+    c67777777777776c
+    c6c666c66c666c6c
+    f6c666cddc666c6f
+    f6c6666cc6666c6f
+    f6cccccccccccc6f
+    f66666666666666f
+    f67777777777776f
+    f6c666c66c666c6f
+    f6c666cddc666c6f
+    f6c6666cc6666c6f
+    f6cccccccccccc6f
+    f66666666666666f
+    f6ffffffffffff6f
+    ffffffffffffffff
     `, SpriteKind.Player)
-_8r1 = sprites.create(img`
+_8r2.setScale(0.5, ScaleAnchor.Middle)
+let _8r3 = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
+    . . . . . . b b b b . . . . . . 
+    . . . . b b 1 1 1 1 b b . . . . 
+    . . . . b 1 1 1 3 3 1 b . . . . 
+    . . . b 1 1 1 1 3 3 3 1 b . . . 
+    . . . b 1 1 3 1 1 3 3 1 b . . . 
+    . . b d 1 1 1 1 1 1 1 1 d b . . 
+    . . b d 3 3 1 1 1 1 1 1 d b . . 
+    . . b b 3 3 1 1 1 1 3 3 d b . . 
+    . . c b b d 1 1 1 3 3 b d c . . 
+    . . c d d d d d d b b b d c . . 
+    . . c b d d b b d b b d b c . . 
+    . . . c d d b b d d d d c . . . 
+    . . . . c b d d d d b c . . . . 
+    . . . . . c c c c c c . . . . . 
     `, SpriteKind.Player)
-_8r1 = sprites.create(img`
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
+_8r3.setScale(0.5, ScaleAnchor.Middle)
+let _8r4 = sprites.create(img`
+    . . . . . . b b b b . . . . . . 
+    . . . . . . b 4 4 4 b . . . . . 
+    . . . . . . b b 4 4 4 b . . . . 
+    . . . . . b 4 b b b 4 4 b . . . 
+    . . . . b d 5 5 5 4 b 4 4 b . . 
+    . . . . b 3 2 3 5 5 4 e 4 4 b . 
+    . . . b d 2 2 2 5 7 5 4 e 4 4 e 
+    . . . b 5 3 2 3 5 5 5 5 e e e e 
+    . . b d 7 5 5 5 3 2 3 5 5 e e e 
+    . . b 5 5 5 5 5 2 2 2 5 5 d e e 
+    . b 3 2 3 5 7 5 3 2 3 5 d d e 4 
+    . b 2 2 2 5 5 5 5 5 5 d d e 4 . 
+    b d 3 2 d 5 5 5 d d d 4 4 . . . 
+    b 5 5 5 5 d d 4 4 4 4 . . . . . 
+    4 d d d 4 4 4 . . . . . . . . . 
+    4 4 4 4 . . . . . . . . . . . . 
     `, SpriteKind.Player)
-_8r1 = sprites.create(img`
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
+_8r4.setScale(0.5, ScaleAnchor.Middle)
+let _8r5 = sprites.create(img`
+    ..........bbbbbb................
+    .......bbb444444bb..............
+    .....2244444ddd444b.............
+    ....244444444dddd44e............
+    ...244444444444ddd4be...........
+    ..244444444444444d44be..........
+    .2b444444444444444d4be..........
+    .2b44444444444444444bbe.........
+    2bbb4444444444444444bbe.........
+    2bbb4444444444444444bbe.........
+    2bb4b4444444444444444bbe........
+    2bb4444444444444444444be........
+    2bb44444444444444444444e........
+    2bbb444bbb4444444444444e........
+    22bbb444bb4bb444444444be........
+    .2bbbbb44bbbb44444444bbe........
+    .22bbbbbbbb44bbb444444bbe.......
+    ..eeebbbbbbb44bbb444444be.......
+    ...eeeeebbbbbbbb44b4444be.......
+    .....eeeeee222bb44bbb4bbe.......
+    .......eeeee222bb44bbbbee.......
+    ............e222bbbbbbbec.......
+    ..............ee2bbbbeebdb......
+    .................eeeeecdddb.....
+    .......................cd11bbbb.
+    ........................cd111dbb
+    .........................b11111c
+    .........................c11dd1c
+    .........................cd1dbc.
+    .........................cb11c..
+    ..........................ccc...
+    ................................
     `, SpriteKind.Player)
-_8r1 = sprites.create(img`
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
+_8r5.setScale(0.5, ScaleAnchor.Middle)
+let _8r6 = sprites.create(img`
+    . . . . . . b b b b . . . . . . 
+    . . . . . . b 4 4 4 b . . . . . 
+    . . . . . . b b 4 4 4 b . . . . 
+    . . . . . b 4 b b b 4 4 b . . . 
+    . . . . b d 5 5 5 4 b 4 4 b . . 
+    . . . . b 3 2 3 5 5 4 e 4 4 b . 
+    . . . b d 2 2 2 5 7 5 4 e 4 4 e 
+    . . . b 5 3 2 3 5 5 5 5 e e e e 
+    . . b d 7 5 5 5 3 2 3 5 5 e e e 
+    . . b 5 5 5 5 5 2 2 2 5 5 d e e 
+    . b 3 2 3 5 7 5 3 2 3 5 d d e 4 
+    . b 2 2 2 5 5 5 5 5 5 d d e 4 . 
+    b d 3 2 d 5 5 5 d d d 4 4 . . . 
+    b 5 5 5 5 d d 4 4 4 4 . . . . . 
+    4 d d d 4 4 4 . . . . . . . . . 
+    4 4 4 4 . . . . . . . . . . . . 
     `, SpriteKind.Player)
+_8r6.setScale(0.5, ScaleAnchor.Middle)
 let _9r1 = sprites.create(img`
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
+    . . . . . . . 6 . . . . . . . . 
+    . . . . . . 8 6 6 . . . 6 8 . . 
+    . . . e e e 8 8 6 6 . 6 7 8 . . 
+    . . e 2 2 2 2 e 8 6 6 7 6 . . . 
+    . e 2 2 4 4 2 7 7 7 7 7 8 6 . . 
+    . e 2 4 4 2 6 7 7 7 6 7 6 8 8 . 
+    e 2 4 5 2 2 6 7 7 6 2 7 7 6 . . 
+    e 2 4 4 2 2 6 7 6 2 2 6 7 7 6 . 
+    e 2 4 2 2 2 6 6 2 2 2 e 7 7 6 . 
+    e 2 4 2 2 4 2 2 2 4 2 2 e 7 6 . 
+    e 2 4 2 2 2 2 2 2 2 2 2 e c 6 . 
+    e 2 2 2 2 2 2 2 4 e 2 e e c . . 
+    e e 2 e 2 2 4 2 2 e e e c . . . 
+    e e e e 2 e 2 2 e e e c . . . . 
+    e e e 2 e e c e c c c . . . . . 
+    . c c c c c c c . . . . . . . . 
+    `, SpriteKind.Player)
+_9r1.setScale(0.5, ScaleAnchor.Middle)
+let _9r2 = sprites.create(img`
+    . . . . . . . . c c c c c . . . 
+    . . . . . . c c 5 5 5 5 5 c . . 
+    . . . . . c 5 5 5 5 5 5 5 5 c . 
+    . . . . c b b b b b b 5 5 5 c . 
+    . . . . c 1 1 b b 1 b b c c . . 
+    . . . c 1 1 1 b b 1 1 1 c . . . 
+    . . . c 1 1 1 1 b 1 1 1 c . c c 
+    . . . c d 1 1 1 b 1 1 1 b b 5 c 
+    . . c c d 1 c 1 b 1 b 1 5 5 5 c 
+    . c c d d 1 1 1 1 1 b 1 b b 5 c 
+    f d d d 1 1 1 1 1 b b 1 f . c c 
+    f f f 1 1 1 1 1 1 b b b f . . . 
+    . . . f f 1 1 1 b b b 5 5 f . . 
+    . . . . . f f f 5 5 5 5 5 f . . 
+    . . . . . . . . f f f f f f . . 
     . . . . . . . . . . . . . . . . 
     `, SpriteKind.Player)
-_9r1 = sprites.create(img`
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
+_9r2.setScale(0.5, ScaleAnchor.Middle)
+let _9r3 = sprites.create(img`
+    ..........666666666666..........
+    ........6667777777777666........
+    ......66677777777777777666......
+    .....6677777779999777777766.....
+    ....667777779966669977777766....
+    ....677777799668866117777776....
+    ...66777779966877861197777766...
+    ...66777799668677686699777766...
+    ...88777796688888888669777788...
+    ...88777788888888888888777788...
+    ...88977888679999997688877988...
+    ...88977886777777777768877988...
+    ...88997777777777777777779988...
+    ...88799777777777777777711788...
+    ...88679997777777777779117688...
+    ..cc866679999999999999976668cc..
+    .ccbc6666679999999999766666cbcc.
+    .fcbcc66666666666666666666ccbcf.
+    .fcbbcc666666666666666666ccbdcf.
+    .f8bbbccc66666666666666cccbddcf.
+    .f8cbbbbccccccccccccccccbdddbcf.
+    .f8ccbbbbbccccccccccccb111ddccf.
+    .f6ccccbbbddddddddddddd111dcccf.
+    .f6ccccccbbddddddddddddddbbcccf.
+    .f6cccccccccccccbbbbbbbbbdbcccf.
+    ..f6cccccccccbbbbbbbbbbbddbccf..
+    ..f6cccccccccbbbbbbbbbbbddbccf..
+    ..ff6ccccccccbbbbbbbbbbbddbcff..
+    ...ff6cccccccbbbbbbbbbbbddbff...
+    ....ffcccccccbbbbbbbbbbbdbff....
+    ......ffccccbbbbbbbbbbbbff......
+    ........ffffffffffffffff........
+    `, SpriteKind.Player)
+_9r3.setScale(0.5, ScaleAnchor.Middle)
+let _9r4 = sprites.create(img`
+    ................
+    .......ddd......
+    ......dbbb......
+    ......dbdd......
+    ......bddd......
+    ......bcdbd.....
+    ......cbcbdd....
+    ......bdbdbd....
+    .....cbdbdcd....
+    .....cbbbddb....
+    .....cfbdbdd....
+    ....bcfbddbd....
+    ....bcfdddd.....
+    ....bfbdddd.....
+    ...bbfdddddb....
+    ...dcbdddddd....
+    .....bdddddd....
+    .....bddbddd....
+    .....bddbdddb...
+    .ccccbddbddddcc.
+    cdddbbdbbddddbdc
+    bddbdbdbbddbdbdb
+    bddbdddbbddbbbdb
+    bdddbddbbddbbddb
+    bddddbbbbbbbbddb
+    bdddddbbbbbddddb
+    cddddddddddddddc
+    bccddddddddddccb
+    dbbbbbbbbbbbbbbd
+    dbbbbccccccbbbbd
+    cbbbbbbbbbbbbbbc
+    fccccccccccccccf
+    `, SpriteKind.Player)
+_9r4.setScale(0.5, ScaleAnchor.Middle)
+let _9r5 = sprites.create(img`
+    . . . . . . . . c c c c c . . . 
+    . . . . . . c c 5 5 5 5 5 c . . 
+    . . . . . c 5 5 5 5 5 5 5 5 c . 
+    . . . . c b b b b b b 5 5 5 c . 
+    . . . . c 1 1 b b 1 b b c c . . 
+    . . . c 1 1 1 b b 1 1 1 c . . . 
+    . . . c 1 1 1 1 b 1 1 1 c . c c 
+    . . . c d 1 1 1 b 1 1 1 b b 5 c 
+    . . c c d 1 c 1 b 1 b 1 5 5 5 c 
+    . c c d d 1 1 1 1 1 b 1 b b 5 c 
+    f d d d 1 1 1 1 1 b b 1 f . c c 
+    f f f 1 1 1 1 1 1 b b b f . . . 
+    . . . f f 1 1 1 b b b 5 5 f . . 
+    . . . . . f f f 5 5 5 5 5 f . . 
+    . . . . . . . . f f f f f f . . 
     . . . . . . . . . . . . . . . . 
     `, SpriteKind.Player)
-_9r1 = sprites.create(img`
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
+_9r5.setScale(0.5, ScaleAnchor.Middle)
+let _9r6 = sprites.create(img`
+    ..........666666666666..........
+    ........6667777777777666........
+    ......66677777777777777666......
+    .....6677777779999777777766.....
+    ....667777779966669977777766....
+    ....677777799668866117777776....
+    ...66777779966877861197777766...
+    ...66777799668677686699777766...
+    ...88777796688888888669777788...
+    ...88777788888888888888777788...
+    ...88977888679999997688877988...
+    ...88977886777777777768877988...
+    ...88997777777777777777779988...
+    ...88799777777777777777711788...
+    ...88679997777777777779117688...
+    ..cc866679999999999999976668cc..
+    .ccbc6666679999999999766666cbcc.
+    .fcbcc66666666666666666666ccbcf.
+    .fcbbcc666666666666666666ccbdcf.
+    .f8bbbccc66666666666666cccbddcf.
+    .f8cbbbbccccccccccccccccbdddbcf.
+    .f8ccbbbbbccccccccccccb111ddccf.
+    .f6ccccbbbddddddddddddd111dcccf.
+    .f6ccccccbbddddddddddddddbbcccf.
+    .f6cccccccccccccbbbbbbbbbdbcccf.
+    ..f6cccccccccbbbbbbbbbbbddbccf..
+    ..f6cccccccccbbbbbbbbbbbddbccf..
+    ..ff6ccccccccbbbbbbbbbbbddbcff..
+    ...ff6cccccccbbbbbbbbbbbddbff...
+    ....ffcccccccbbbbbbbbbbbdbff....
+    ......ffccccbbbbbbbbbbbbff......
+    ........ffffffffffffffff........
     `, SpriteKind.Player)
-_9r1 = sprites.create(img`
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    `, SpriteKind.Player)
-_9r1 = sprites.create(img`
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    `, SpriteKind.Player)
-_9r1 = sprites.create(img`
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    `, SpriteKind.Player)
+_9r6.setScale(0.5, ScaleAnchor.Middle)
 /**
  * animation
  */
 forever(function () {
     if (!(controller.down.isPressed()) && (!(controller.up.isPressed()) && (!(controller.left.isPressed()) && !(controller.right.isPressed())))) {
         animation.stopAnimation(animation.AnimationTypes.All, seeker)
+    }
+})
+forever(function () {
+    if (currentTilemap == 1) {
+        tiles.placeOnTile(_1r1, tiles.getTileLocation(listsOfListsOfCoordinatesX[0][0], 0))
+        tiles.placeOnTile(_1r2, tiles.getTileLocation(listsOfListsOfCoordinatesX[0][0], 0))
+        tiles.placeOnTile(_1r3, tiles.getTileLocation(listsOfListsOfCoordinatesX[0][0], 0))
+        tiles.placeOnTile(_1r4, tiles.getTileLocation(listsOfListsOfCoordinatesX[0][0], 0))
+        tiles.placeOnTile(_1r5, tiles.getTileLocation(listsOfListsOfCoordinatesX[0][0], 0))
+        tiles.placeOnTile(_1r6, tiles.getTileLocation(listsOfListsOfCoordinatesX[0][0], 0))
+    }
+    if (currentTilemap == 2) {
+        tiles.placeOnTile(_2r1, tiles.getTileLocation(listsOfListsOfCoordinatesX[0][0], 0))
+        tiles.placeOnTile(_2r2, tiles.getTileLocation(listsOfListsOfCoordinatesX[0][0], 0))
+        tiles.placeOnTile(_2r3, tiles.getTileLocation(listsOfListsOfCoordinatesX[0][0], 0))
+        tiles.placeOnTile(_2r4, tiles.getTileLocation(listsOfListsOfCoordinatesX[0][0], 0))
+        tiles.placeOnTile(_2r5, tiles.getTileLocation(listsOfListsOfCoordinatesX[0][0], 0))
+        tiles.placeOnTile(_2r6, tiles.getTileLocation(listsOfListsOfCoordinatesX[0][0], 0))
+    }
+    if (currentTilemap == 3) {
+        tiles.placeOnTile(_3r1, tiles.getTileLocation(listsOfListsOfCoordinatesX[0][0], 0))
+        tiles.placeOnTile(_3r2, tiles.getTileLocation(listsOfListsOfCoordinatesX[0][0], 0))
+        tiles.placeOnTile(_3r3, tiles.getTileLocation(listsOfListsOfCoordinatesX[0][0], 0))
+        tiles.placeOnTile(_3r4, tiles.getTileLocation(listsOfListsOfCoordinatesX[0][0], 0))
+        tiles.placeOnTile(_3r5, tiles.getTileLocation(listsOfListsOfCoordinatesX[0][0], 0))
+        tiles.placeOnTile(_3r6, tiles.getTileLocation(listsOfListsOfCoordinatesX[0][0], 0))
+    }
+    if (currentTilemap == 4) {
+        tiles.placeOnTile(_4r1, tiles.getTileLocation(listsOfListsOfCoordinatesX[0][0], 0))
+        tiles.placeOnTile(_4r2, tiles.getTileLocation(listsOfListsOfCoordinatesX[0][0], 0))
+        tiles.placeOnTile(_4r3, tiles.getTileLocation(listsOfListsOfCoordinatesX[0][0], 0))
+        tiles.placeOnTile(_4r4, tiles.getTileLocation(listsOfListsOfCoordinatesX[0][0], 0))
+        tiles.placeOnTile(_4r5, tiles.getTileLocation(listsOfListsOfCoordinatesX[0][0], 0))
+        tiles.placeOnTile(_4r6, tiles.getTileLocation(listsOfListsOfCoordinatesX[0][0], 0))
+    }
+    if (currentTilemap == 5) {
+        tiles.placeOnTile(_5r1, tiles.getTileLocation(listsOfListsOfCoordinatesX[0][0], 0))
+        tiles.placeOnTile(_5r2, tiles.getTileLocation(listsOfListsOfCoordinatesX[0][0], 0))
+        tiles.placeOnTile(_5r3, tiles.getTileLocation(listsOfListsOfCoordinatesX[0][0], 0))
+        tiles.placeOnTile(_5r4, tiles.getTileLocation(listsOfListsOfCoordinatesX[0][0], 0))
+        tiles.placeOnTile(_5r5, tiles.getTileLocation(listsOfListsOfCoordinatesX[0][0], 0))
+        tiles.placeOnTile(_5r6, tiles.getTileLocation(listsOfListsOfCoordinatesX[0][0], 0))
+    }
+    if (currentTilemap == 6) {
+        tiles.placeOnTile(_6r1, tiles.getTileLocation(listsOfListsOfCoordinatesX[0][0], 0))
+        tiles.placeOnTile(_6r2, tiles.getTileLocation(0, 0))
+        tiles.placeOnTile(_6r3, tiles.getTileLocation(0, 0))
+        tiles.placeOnTile(_6r4, tiles.getTileLocation(0, 0))
+        tiles.placeOnTile(_6r5, tiles.getTileLocation(0, 0))
+        tiles.placeOnTile(_6r6, tiles.getTileLocation(0, 0))
+    }
+    if (currentTilemap == 7) {
+        tiles.placeOnTile(_7r1, tiles.getTileLocation(0, 0))
+        tiles.placeOnTile(_7r2, tiles.getTileLocation(0, 0))
+        tiles.placeOnTile(_7r3, tiles.getTileLocation(0, 0))
+        tiles.placeOnTile(_7r4, tiles.getTileLocation(0, 0))
+        tiles.placeOnTile(_7r5, tiles.getTileLocation(0, 0))
+        tiles.placeOnTile(_7r6, tiles.getTileLocation(0, 0))
+    }
+    if (currentTilemap == 8) {
+        tiles.placeOnTile(_8r1, tiles.getTileLocation(0, 0))
+        tiles.placeOnTile(_8r2, tiles.getTileLocation(0, 0))
+        tiles.placeOnTile(_8r3, tiles.getTileLocation(0, 0))
+        tiles.placeOnTile(_8r4, tiles.getTileLocation(0, 0))
+        tiles.placeOnTile(_8r5, tiles.getTileLocation(0, 0))
+        tiles.placeOnTile(_8r6, tiles.getTileLocation(0, 0))
+    }
+    if (currentTilemap == 9) {
+        tiles.placeOnTile(_9r1, tiles.getTileLocation(0, 0))
+        tiles.placeOnTile(_9r2, tiles.getTileLocation(0, 0))
+        tiles.placeOnTile(_9r3, tiles.getTileLocation(0, 0))
+        tiles.placeOnTile(_9r4, tiles.getTileLocation(0, 0))
+        tiles.placeOnTile(_9r5, tiles.getTileLocation(0, 0))
+        tiles.placeOnTile(_9r6, tiles.getTileLocation(0, 0))
     }
 })
