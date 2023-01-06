@@ -1,3 +1,13 @@
+namespace SpriteKind {
+    export const one = SpriteKind.create()
+}
+/**
+ * 6  2  7
+ * 
+ * 4  1  5
+ * 
+ * 8  3  9
+ */
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
     seeker,
@@ -56,6 +66,27 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     50,
     true
     )
+})
+scene.onOverlapTile(SpriteKind.Enemy, sprites.dungeon.stairNorth, function (sprite, location) {
+    if (currentTilemap == 6) {
+        currentTilemap = 4
+        tiles.placeOnTile(seeker, tiles.getTileLocation(7, 2))
+    } else if (currentTilemap == 2) {
+        currentTilemap = 1
+        tiles.placeOnTile(seeker, tiles.getTileLocation(7, 2))
+    } else if (currentTilemap == 7) {
+        currentTilemap = 5
+        tiles.placeOnTile(seeker, tiles.getTileLocation(7, 2))
+    } else if (currentTilemap == 4) {
+        currentTilemap = 8
+        tiles.placeOnTile(seeker, tiles.getTileLocation(7, 2))
+    } else if (currentTilemap == 1) {
+        currentTilemap = 3
+        tiles.placeOnTile(seeker, tiles.getTileLocation(7, 2))
+    } else {
+        currentTilemap = 9
+        tiles.placeOnTile(seeker, tiles.getTileLocation(7, 2))
+    }
 })
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
@@ -175,6 +206,27 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     true
     )
 })
+scene.onOverlapTile(SpriteKind.Enemy, sprites.dungeon.stairSouth, function (sprite, location) {
+    if (currentTilemap == 9) {
+        currentTilemap = 5
+        tiles.placeOnTile(seeker, tiles.getTileLocation(8, 13))
+    } else if (currentTilemap == 3) {
+        currentTilemap = 1
+        tiles.placeOnTile(seeker, tiles.getTileLocation(8, 13))
+    } else if (currentTilemap == 8) {
+        currentTilemap = 4
+        tiles.placeOnTile(seeker, tiles.getTileLocation(8, 13))
+    } else if (currentTilemap == 5) {
+        currentTilemap = 7
+        tiles.placeOnTile(seeker, tiles.getTileLocation(8, 13))
+    } else if (currentTilemap == 1) {
+        currentTilemap = 2
+        tiles.placeOnTile(seeker, tiles.getTileLocation(8, 13))
+    } else {
+        currentTilemap = 6
+        tiles.placeOnTile(seeker, tiles.getTileLocation(8, 13))
+    }
+})
 controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
     seeker,
@@ -234,7 +286,50 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     true
     )
 })
+scene.onOverlapTile(SpriteKind.Enemy, sprites.dungeon.stairWest, function (sprite, location) {
+    if (currentTilemap == 6) {
+        currentTilemap = 2
+        tiles.placeOnTile(seeker, tiles.getTileLocation(2, 8))
+    } else if (currentTilemap == 4) {
+        currentTilemap = 1
+        tiles.placeOnTile(seeker, tiles.getTileLocation(2, 8))
+    } else if (currentTilemap == 8) {
+        currentTilemap = 3
+        tiles.placeOnTile(seeker, tiles.getTileLocation(2, 8))
+    } else if (currentTilemap == 2) {
+        currentTilemap = 7
+        tiles.placeOnTile(seeker, tiles.getTileLocation(2, 8))
+    } else if (currentTilemap == 1) {
+        currentTilemap = 5
+        tiles.placeOnTile(seeker, tiles.getTileLocation(2, 8))
+    } else {
+        currentTilemap = 9
+        tiles.placeOnTile(seeker, tiles.getTileLocation(2, 8))
+    }
+})
+scene.onOverlapTile(SpriteKind.Enemy, sprites.dungeon.stairEast, function (sprite, location) {
+    if (currentTilemap == 1) {
+        currentTilemap = 4
+        tiles.placeOnTile(seeker, tiles.getTileLocation(13, 8))
+    } else if (currentTilemap == 2) {
+        currentTilemap = 6
+        tiles.placeOnTile(seeker, tiles.getTileLocation(13, 8))
+    } else if (currentTilemap == 3) {
+        currentTilemap = 8
+        tiles.placeOnTile(seeker, tiles.getTileLocation(13, 8))
+    } else if (currentTilemap == 7) {
+        currentTilemap = 2
+        tiles.placeOnTile(seeker, tiles.getTileLocation(13, 8))
+    } else if (currentTilemap == 5) {
+        currentTilemap = 1
+        tiles.placeOnTile(seeker, tiles.getTileLocation(13, 8))
+    } else {
+        currentTilemap = 3
+        tiles.placeOnTile(seeker, tiles.getTileLocation(13, 8))
+    }
+})
 let seeker: Sprite = null
+let currentTilemap = 0
 let ListOfTilemaps = [
 tilemap`level1`,
 tilemap`level13`,
@@ -414,7 +509,7 @@ for (let index = 0; index <= 8; index++) {
     randint(0, 15)
     ]
 }
-let currentTilemap = 1
+currentTilemap = 1
 seeker = sprites.create(img`
     . . . . f f f f . . . . . 
     . . f f f f f f f f . . . 
@@ -432,7 +527,7 @@ seeker = sprites.create(img`
     e e f 6 6 6 6 6 6 f e e . 
     . . . f f f f f f . . . . 
     . . . f f . . f f . . . . 
-    `, SpriteKind.Player)
+    `, SpriteKind.Enemy)
 let _1r1 = sprites.create(img`
     ................86..................
     ...........6688867886...............
@@ -1782,76 +1877,279 @@ forever(function () {
     }
 })
 forever(function () {
+    scene.cameraFollowSprite(seeker)
+    controller.moveSprite(seeker)
     if (currentTilemap == 1) {
-        tiles.placeOnTile(_1r1, tiles.getTileLocation(listsOfListsOfCoordinatesX[0][0], 0))
-        tiles.placeOnTile(_1r2, tiles.getTileLocation(listsOfListsOfCoordinatesX[0][0], 0))
-        tiles.placeOnTile(_1r3, tiles.getTileLocation(listsOfListsOfCoordinatesX[0][0], 0))
-        tiles.placeOnTile(_1r4, tiles.getTileLocation(listsOfListsOfCoordinatesX[0][0], 0))
-        tiles.placeOnTile(_1r5, tiles.getTileLocation(listsOfListsOfCoordinatesX[0][0], 0))
-        tiles.placeOnTile(_1r6, tiles.getTileLocation(listsOfListsOfCoordinatesX[0][0], 0))
+        _2r1.setPosition(1000, 0)
+        _2r2.setPosition(1000, 0)
+        _2r3.setPosition(1000, 0)
+        _2r4.setPosition(1000, 0)
+        _2r5.setPosition(1000, 0)
+        _2r6.setPosition(1000, 0)
+        _3r1.setPosition(1000, 0)
+        _3r2.setPosition(1000, 0)
+        _3r3.setPosition(1000, 0)
+        _3r4.setPosition(1000, 0)
+        _3r5.setPosition(1000, 0)
+        _3r6.setPosition(1000, 0)
+        _4r1.setPosition(1000, 0)
+        _4r2.setPosition(1000, 0)
+        _4r3.setPosition(1000, 0)
+        _4r4.setPosition(1000, 0)
+        _4r5.setPosition(1000, 0)
+        _4r6.setPosition(1000, 0)
+        _5r1.setPosition(1000, 0)
+        _5r2.setPosition(1000, 0)
+        _5r3.setPosition(1000, 0)
+        _5r4.setPosition(1000, 0)
+        _5r5.setPosition(1000, 0)
+        _5r6.setPosition(1000, 0)
+        _6r1.setPosition(1000, 0)
+        _6r2.setPosition(1000, 0)
+        _6r3.setPosition(1000, 0)
+        _6r4.setPosition(1000, 0)
+        _6r5.setPosition(1000, 0)
+        _6r6.setPosition(1000, 0)
+        _7r1.setPosition(1000, 0)
+        _7r2.setPosition(1000, 0)
+        _7r3.setPosition(1000, 0)
+        _7r4.setPosition(1000, 0)
+        _7r5.setPosition(1000, 0)
+        _7r6.setPosition(1000, 0)
+        _8r1.setPosition(1000, 0)
+        _8r2.setPosition(1000, 0)
+        _8r3.setPosition(1000, 0)
+        _8r4.setPosition(1000, 0)
+        _8r5.setPosition(1000, 0)
+        _8r6.setPosition(1000, 0)
+        _9r1.setPosition(1000, 0)
+        _9r2.setPosition(1000, 0)
+        _9r3.setPosition(1000, 0)
+        _9r4.setPosition(1000, 0)
+        _9r5.setPosition(1000, 0)
+        _9r6.setPosition(1000, 0)
+        tiles.placeOnTile(_1r1, tiles.getTileLocation(listsOfListsOfCoordinatesX[0][0], ListsOfListsOfCoordinatesY[0][0]))
+        tiles.placeOnTile(_1r2, tiles.getTileLocation(listsOfListsOfCoordinatesX[0][1], ListsOfListsOfCoordinatesY[0][1]))
+        tiles.placeOnTile(_1r3, tiles.getTileLocation(listsOfListsOfCoordinatesX[0][2], ListsOfListsOfCoordinatesY[0][2]))
+        tiles.placeOnTile(_1r4, tiles.getTileLocation(listsOfListsOfCoordinatesX[0][3], ListsOfListsOfCoordinatesY[0][3]))
+        tiles.placeOnTile(_1r5, tiles.getTileLocation(listsOfListsOfCoordinatesX[0][4], ListsOfListsOfCoordinatesY[0][4]))
+        tiles.placeOnTile(_1r6, tiles.getTileLocation(listsOfListsOfCoordinatesX[0][5], ListsOfListsOfCoordinatesY[0][5]))
+        tiles.setCurrentTilemap(ListOfTilemaps[0])
     }
     if (currentTilemap == 2) {
-        tiles.placeOnTile(_2r1, tiles.getTileLocation(listsOfListsOfCoordinatesX[0][0], 0))
-        tiles.placeOnTile(_2r2, tiles.getTileLocation(listsOfListsOfCoordinatesX[0][0], 0))
-        tiles.placeOnTile(_2r3, tiles.getTileLocation(listsOfListsOfCoordinatesX[0][0], 0))
-        tiles.placeOnTile(_2r4, tiles.getTileLocation(listsOfListsOfCoordinatesX[0][0], 0))
-        tiles.placeOnTile(_2r5, tiles.getTileLocation(listsOfListsOfCoordinatesX[0][0], 0))
-        tiles.placeOnTile(_2r6, tiles.getTileLocation(listsOfListsOfCoordinatesX[0][0], 0))
+        _1r1.setPosition(1000, 0)
+        _1r2.setPosition(1000, 0)
+        _1r3.setPosition(1000, 0)
+        _1r4.setPosition(1000, 0)
+        _1r5.setPosition(1000, 0)
+        _1r6.setPosition(1000, 0)
+        _3r1.setPosition(1000, 0)
+        _3r2.setPosition(1000, 0)
+        _3r3.setPosition(1000, 0)
+        _3r4.setPosition(1000, 0)
+        _3r5.setPosition(1000, 0)
+        _3r6.setPosition(1000, 0)
+        _4r1.setPosition(1000, 0)
+        _4r2.setPosition(1000, 0)
+        _4r3.setPosition(1000, 0)
+        _4r4.setPosition(1000, 0)
+        _4r5.setPosition(1000, 0)
+        _4r6.setPosition(1000, 0)
+        _5r1.setPosition(1000, 0)
+        _5r2.setPosition(1000, 0)
+        _5r3.setPosition(1000, 0)
+        _5r4.setPosition(1000, 0)
+        _5r5.setPosition(1000, 0)
+        _5r6.setPosition(1000, 0)
+        _6r1.setPosition(1000, 0)
+        _6r2.setPosition(1000, 0)
+        _6r3.setPosition(1000, 0)
+        _6r4.setPosition(1000, 0)
+        _6r5.setPosition(1000, 0)
+        _6r6.setPosition(1000, 0)
+        _7r1.setPosition(1000, 0)
+        _7r2.setPosition(1000, 0)
+        _7r3.setPosition(1000, 0)
+        _7r4.setPosition(1000, 0)
+        _7r5.setPosition(1000, 0)
+        _7r6.setPosition(1000, 0)
+        _8r1.setPosition(1000, 0)
+        _8r2.setPosition(1000, 0)
+        _8r3.setPosition(1000, 0)
+        _8r4.setPosition(1000, 0)
+        _8r5.setPosition(1000, 0)
+        _8r6.setPosition(1000, 0)
+        _9r1.setPosition(1000, 0)
+        _9r2.setPosition(1000, 0)
+        _9r3.setPosition(1000, 0)
+        _9r4.setPosition(1000, 0)
+        _9r5.setPosition(1000, 0)
+        _9r6.setPosition(1000, 0)
+        tiles.placeOnTile(_2r1, tiles.getTileLocation(listsOfListsOfCoordinatesX[1][0], ListsOfListsOfCoordinatesY[1][0]))
+        tiles.placeOnTile(_2r2, tiles.getTileLocation(listsOfListsOfCoordinatesX[1][1], ListsOfListsOfCoordinatesY[1][1]))
+        tiles.placeOnTile(_2r3, tiles.getTileLocation(listsOfListsOfCoordinatesX[1][2], ListsOfListsOfCoordinatesY[1][2]))
+        tiles.placeOnTile(_2r4, tiles.getTileLocation(listsOfListsOfCoordinatesX[1][3], ListsOfListsOfCoordinatesY[1][3]))
+        tiles.placeOnTile(_2r5, tiles.getTileLocation(listsOfListsOfCoordinatesX[1][4], ListsOfListsOfCoordinatesY[1][4]))
+        tiles.placeOnTile(_2r6, tiles.getTileLocation(listsOfListsOfCoordinatesX[1][5], ListsOfListsOfCoordinatesY[1][5]))
+        tiles.setCurrentTilemap(ListOfTilemaps[1])
     }
     if (currentTilemap == 3) {
-        tiles.placeOnTile(_3r1, tiles.getTileLocation(listsOfListsOfCoordinatesX[0][0], 0))
-        tiles.placeOnTile(_3r2, tiles.getTileLocation(listsOfListsOfCoordinatesX[0][0], 0))
-        tiles.placeOnTile(_3r3, tiles.getTileLocation(listsOfListsOfCoordinatesX[0][0], 0))
-        tiles.placeOnTile(_3r4, tiles.getTileLocation(listsOfListsOfCoordinatesX[0][0], 0))
-        tiles.placeOnTile(_3r5, tiles.getTileLocation(listsOfListsOfCoordinatesX[0][0], 0))
-        tiles.placeOnTile(_3r6, tiles.getTileLocation(listsOfListsOfCoordinatesX[0][0], 0))
+        _1r1.setPosition(1000, 0)
+        _1r2.setPosition(1000, 0)
+        _1r3.setPosition(1000, 0)
+        _1r4.setPosition(1000, 0)
+        _1r5.setPosition(1000, 0)
+        _1r6.setPosition(1000, 0)
+        _2r1.setPosition(1000, 0)
+        _2r2.setPosition(1000, 0)
+        _2r3.setPosition(1000, 0)
+        _2r4.setPosition(1000, 0)
+        _2r5.setPosition(1000, 0)
+        _2r6.setPosition(1000, 0)
+        _4r1.setPosition(1000, 0)
+        _4r2.setPosition(1000, 0)
+        _4r3.setPosition(1000, 0)
+        _4r4.setPosition(1000, 0)
+        _4r5.setPosition(1000, 0)
+        _4r6.setPosition(1000, 0)
+        _5r1.setPosition(1000, 0)
+        _5r2.setPosition(1000, 0)
+        _5r3.setPosition(1000, 0)
+        _5r4.setPosition(1000, 0)
+        _5r5.setPosition(1000, 0)
+        _5r6.setPosition(1000, 0)
+        _6r1.setPosition(1000, 0)
+        _6r2.setPosition(1000, 0)
+        _6r3.setPosition(1000, 0)
+        _6r4.setPosition(1000, 0)
+        _6r5.setPosition(1000, 0)
+        _6r6.setPosition(1000, 0)
+        _7r1.setPosition(1000, 0)
+        _7r2.setPosition(1000, 0)
+        _7r3.setPosition(1000, 0)
+        _7r4.setPosition(1000, 0)
+        _7r5.setPosition(1000, 0)
+        _7r6.setPosition(1000, 0)
+        _8r1.setPosition(1000, 0)
+        _8r2.setPosition(1000, 0)
+        _8r3.setPosition(1000, 0)
+        _8r4.setPosition(1000, 0)
+        _8r5.setPosition(1000, 0)
+        _8r6.setPosition(1000, 0)
+        _9r1.setPosition(1000, 0)
+        _9r2.setPosition(1000, 0)
+        _9r3.setPosition(1000, 0)
+        _9r4.setPosition(1000, 0)
+        _9r5.setPosition(1000, 0)
+        _9r6.setPosition(1000, 0)
+        tiles.placeOnTile(_3r1, tiles.getTileLocation(listsOfListsOfCoordinatesX[2][0], ListsOfListsOfCoordinatesY[2][0]))
+        tiles.placeOnTile(_3r2, tiles.getTileLocation(listsOfListsOfCoordinatesX[2][1], ListsOfListsOfCoordinatesY[2][1]))
+        tiles.placeOnTile(_3r3, tiles.getTileLocation(listsOfListsOfCoordinatesX[2][2], ListsOfListsOfCoordinatesY[2][2]))
+        tiles.placeOnTile(_3r4, tiles.getTileLocation(listsOfListsOfCoordinatesX[2][3], ListsOfListsOfCoordinatesY[2][3]))
+        tiles.placeOnTile(_3r5, tiles.getTileLocation(listsOfListsOfCoordinatesX[2][4], ListsOfListsOfCoordinatesY[2][4]))
+        tiles.placeOnTile(_3r6, tiles.getTileLocation(listsOfListsOfCoordinatesX[2][5], ListsOfListsOfCoordinatesY[2][5]))
+        tiles.setCurrentTilemap(ListOfTilemaps[2])
     }
     if (currentTilemap == 4) {
-        tiles.placeOnTile(_4r1, tiles.getTileLocation(listsOfListsOfCoordinatesX[0][0], 0))
-        tiles.placeOnTile(_4r2, tiles.getTileLocation(listsOfListsOfCoordinatesX[0][0], 0))
-        tiles.placeOnTile(_4r3, tiles.getTileLocation(listsOfListsOfCoordinatesX[0][0], 0))
-        tiles.placeOnTile(_4r4, tiles.getTileLocation(listsOfListsOfCoordinatesX[0][0], 0))
-        tiles.placeOnTile(_4r5, tiles.getTileLocation(listsOfListsOfCoordinatesX[0][0], 0))
-        tiles.placeOnTile(_4r6, tiles.getTileLocation(listsOfListsOfCoordinatesX[0][0], 0))
+        _1r1.setPosition(1000, 0)
+        _1r2.setPosition(1000, 0)
+        _1r3.setPosition(1000, 0)
+        _1r4.setPosition(1000, 0)
+        _1r5.setPosition(1000, 0)
+        _1r6.setPosition(1000, 0)
+        _2r1.setPosition(1000, 0)
+        _2r2.setPosition(1000, 0)
+        _2r3.setPosition(1000, 0)
+        _2r4.setPosition(1000, 0)
+        _2r5.setPosition(1000, 0)
+        _2r6.setPosition(1000, 0)
+        _3r1.setPosition(1000, 0)
+        _3r2.setPosition(1000, 0)
+        _3r3.setPosition(1000, 0)
+        _3r4.setPosition(1000, 0)
+        _3r5.setPosition(1000, 0)
+        _3r6.setPosition(1000, 0)
+        _5r1.setPosition(1000, 0)
+        _5r2.setPosition(1000, 0)
+        _5r3.setPosition(1000, 0)
+        _5r4.setPosition(1000, 0)
+        _5r5.setPosition(1000, 0)
+        _5r6.setPosition(1000, 0)
+        _6r1.setPosition(1000, 0)
+        _6r2.setPosition(1000, 0)
+        _6r3.setPosition(1000, 0)
+        _6r4.setPosition(1000, 0)
+        _6r5.setPosition(1000, 0)
+        _6r6.setPosition(1000, 0)
+        _7r1.setPosition(1000, 0)
+        _7r2.setPosition(1000, 0)
+        _7r3.setPosition(1000, 0)
+        _7r4.setPosition(1000, 0)
+        _7r5.setPosition(1000, 0)
+        _7r6.setPosition(1000, 0)
+        _8r1.setPosition(1000, 0)
+        _8r2.setPosition(1000, 0)
+        _8r3.setPosition(1000, 0)
+        _8r4.setPosition(1000, 0)
+        _8r5.setPosition(1000, 0)
+        _8r6.setPosition(1000, 0)
+        _9r1.setPosition(1000, 0)
+        _9r2.setPosition(1000, 0)
+        _9r3.setPosition(1000, 0)
+        _9r4.setPosition(1000, 0)
+        _9r5.setPosition(1000, 0)
+        _9r6.setPosition(1000, 0)
+        tiles.placeOnTile(_4r1, tiles.getTileLocation(listsOfListsOfCoordinatesX[3][0], ListsOfListsOfCoordinatesY[3][0]))
+        tiles.placeOnTile(_4r2, tiles.getTileLocation(listsOfListsOfCoordinatesX[3][1], ListsOfListsOfCoordinatesY[3][1]))
+        tiles.placeOnTile(_4r3, tiles.getTileLocation(listsOfListsOfCoordinatesX[3][2], ListsOfListsOfCoordinatesY[3][2]))
+        tiles.placeOnTile(_4r4, tiles.getTileLocation(listsOfListsOfCoordinatesX[3][3], ListsOfListsOfCoordinatesY[3][3]))
+        tiles.placeOnTile(_4r5, tiles.getTileLocation(listsOfListsOfCoordinatesX[3][4], ListsOfListsOfCoordinatesY[3][4]))
+        tiles.placeOnTile(_4r6, tiles.getTileLocation(listsOfListsOfCoordinatesX[3][5], ListsOfListsOfCoordinatesY[3][5]))
+        tiles.setCurrentTilemap(ListOfTilemaps[3])
     }
     if (currentTilemap == 5) {
-        tiles.placeOnTile(_5r1, tiles.getTileLocation(listsOfListsOfCoordinatesX[0][0], 0))
-        tiles.placeOnTile(_5r2, tiles.getTileLocation(listsOfListsOfCoordinatesX[0][0], 0))
-        tiles.placeOnTile(_5r3, tiles.getTileLocation(listsOfListsOfCoordinatesX[0][0], 0))
-        tiles.placeOnTile(_5r4, tiles.getTileLocation(listsOfListsOfCoordinatesX[0][0], 0))
-        tiles.placeOnTile(_5r5, tiles.getTileLocation(listsOfListsOfCoordinatesX[0][0], 0))
-        tiles.placeOnTile(_5r6, tiles.getTileLocation(listsOfListsOfCoordinatesX[0][0], 0))
+        tiles.placeOnTile(_5r1, tiles.getTileLocation(listsOfListsOfCoordinatesX[4][0], ListsOfListsOfCoordinatesY[4][0]))
+        tiles.placeOnTile(_5r2, tiles.getTileLocation(listsOfListsOfCoordinatesX[4][1], ListsOfListsOfCoordinatesY[4][1]))
+        tiles.placeOnTile(_5r3, tiles.getTileLocation(listsOfListsOfCoordinatesX[4][2], ListsOfListsOfCoordinatesY[4][2]))
+        tiles.placeOnTile(_5r4, tiles.getTileLocation(listsOfListsOfCoordinatesX[4][3], ListsOfListsOfCoordinatesY[4][3]))
+        tiles.placeOnTile(_5r5, tiles.getTileLocation(listsOfListsOfCoordinatesX[4][4], ListsOfListsOfCoordinatesY[4][4]))
+        tiles.placeOnTile(_5r6, tiles.getTileLocation(listsOfListsOfCoordinatesX[4][5], ListsOfListsOfCoordinatesY[4][5]))
+        tiles.setCurrentTilemap(ListOfTilemaps[4])
     }
     if (currentTilemap == 6) {
-        tiles.placeOnTile(_6r1, tiles.getTileLocation(listsOfListsOfCoordinatesX[0][0], 0))
-        tiles.placeOnTile(_6r2, tiles.getTileLocation(0, 0))
-        tiles.placeOnTile(_6r3, tiles.getTileLocation(0, 0))
-        tiles.placeOnTile(_6r4, tiles.getTileLocation(0, 0))
-        tiles.placeOnTile(_6r5, tiles.getTileLocation(0, 0))
-        tiles.placeOnTile(_6r6, tiles.getTileLocation(0, 0))
+        tiles.placeOnTile(_6r1, tiles.getTileLocation(listsOfListsOfCoordinatesX[5][0], ListsOfListsOfCoordinatesY[5][0]))
+        tiles.placeOnTile(_6r2, tiles.getTileLocation(listsOfListsOfCoordinatesX[5][1], ListsOfListsOfCoordinatesY[5][1]))
+        tiles.placeOnTile(_6r3, tiles.getTileLocation(listsOfListsOfCoordinatesX[5][2], ListsOfListsOfCoordinatesY[5][2]))
+        tiles.placeOnTile(_6r4, tiles.getTileLocation(listsOfListsOfCoordinatesX[5][3], ListsOfListsOfCoordinatesY[5][3]))
+        tiles.placeOnTile(_6r5, tiles.getTileLocation(listsOfListsOfCoordinatesX[5][4], ListsOfListsOfCoordinatesY[5][4]))
+        tiles.placeOnTile(_6r6, tiles.getTileLocation(listsOfListsOfCoordinatesX[5][5], ListsOfListsOfCoordinatesY[5][5]))
+        tiles.setCurrentTilemap(ListOfTilemaps[5])
     }
     if (currentTilemap == 7) {
-        tiles.placeOnTile(_7r1, tiles.getTileLocation(0, 0))
-        tiles.placeOnTile(_7r2, tiles.getTileLocation(0, 0))
-        tiles.placeOnTile(_7r3, tiles.getTileLocation(0, 0))
-        tiles.placeOnTile(_7r4, tiles.getTileLocation(0, 0))
-        tiles.placeOnTile(_7r5, tiles.getTileLocation(0, 0))
-        tiles.placeOnTile(_7r6, tiles.getTileLocation(0, 0))
+        tiles.placeOnTile(_7r1, tiles.getTileLocation(listsOfListsOfCoordinatesX[6][0], ListsOfListsOfCoordinatesY[6][0]))
+        tiles.placeOnTile(_7r2, tiles.getTileLocation(listsOfListsOfCoordinatesX[6][1], ListsOfListsOfCoordinatesY[6][1]))
+        tiles.placeOnTile(_7r3, tiles.getTileLocation(listsOfListsOfCoordinatesX[6][2], ListsOfListsOfCoordinatesY[6][2]))
+        tiles.placeOnTile(_7r4, tiles.getTileLocation(listsOfListsOfCoordinatesX[6][3], ListsOfListsOfCoordinatesY[6][3]))
+        tiles.placeOnTile(_7r5, tiles.getTileLocation(listsOfListsOfCoordinatesX[6][4], ListsOfListsOfCoordinatesY[6][4]))
+        tiles.placeOnTile(_7r6, tiles.getTileLocation(listsOfListsOfCoordinatesX[6][5], ListsOfListsOfCoordinatesY[6][5]))
+        tiles.setCurrentTilemap(ListOfTilemaps[6])
     }
     if (currentTilemap == 8) {
-        tiles.placeOnTile(_8r1, tiles.getTileLocation(0, 0))
-        tiles.placeOnTile(_8r2, tiles.getTileLocation(0, 0))
-        tiles.placeOnTile(_8r3, tiles.getTileLocation(0, 0))
-        tiles.placeOnTile(_8r4, tiles.getTileLocation(0, 0))
-        tiles.placeOnTile(_8r5, tiles.getTileLocation(0, 0))
-        tiles.placeOnTile(_8r6, tiles.getTileLocation(0, 0))
+        tiles.placeOnTile(_8r1, tiles.getTileLocation(listsOfListsOfCoordinatesX[7][0], ListsOfListsOfCoordinatesY[7][0]))
+        tiles.placeOnTile(_8r2, tiles.getTileLocation(listsOfListsOfCoordinatesX[7][1], ListsOfListsOfCoordinatesY[7][1]))
+        tiles.placeOnTile(_8r3, tiles.getTileLocation(listsOfListsOfCoordinatesX[7][2], ListsOfListsOfCoordinatesY[7][2]))
+        tiles.placeOnTile(_8r4, tiles.getTileLocation(listsOfListsOfCoordinatesX[7][3], ListsOfListsOfCoordinatesY[7][3]))
+        tiles.placeOnTile(_8r5, tiles.getTileLocation(listsOfListsOfCoordinatesX[7][4], ListsOfListsOfCoordinatesY[7][4]))
+        tiles.placeOnTile(_8r6, tiles.getTileLocation(listsOfListsOfCoordinatesX[7][5], ListsOfListsOfCoordinatesY[7][5]))
+        tiles.setCurrentTilemap(ListOfTilemaps[7])
     }
     if (currentTilemap == 9) {
-        tiles.placeOnTile(_9r1, tiles.getTileLocation(0, 0))
-        tiles.placeOnTile(_9r2, tiles.getTileLocation(0, 0))
-        tiles.placeOnTile(_9r3, tiles.getTileLocation(0, 0))
-        tiles.placeOnTile(_9r4, tiles.getTileLocation(0, 0))
-        tiles.placeOnTile(_9r5, tiles.getTileLocation(0, 0))
-        tiles.placeOnTile(_9r6, tiles.getTileLocation(0, 0))
+        tiles.placeOnTile(_9r1, tiles.getTileLocation(listsOfListsOfCoordinatesX[8][0], ListsOfListsOfCoordinatesY[8][0]))
+        tiles.placeOnTile(_9r2, tiles.getTileLocation(listsOfListsOfCoordinatesX[8][1], ListsOfListsOfCoordinatesY[8][1]))
+        tiles.placeOnTile(_9r3, tiles.getTileLocation(listsOfListsOfCoordinatesX[8][2], ListsOfListsOfCoordinatesY[8][2]))
+        tiles.placeOnTile(_9r4, tiles.getTileLocation(listsOfListsOfCoordinatesX[8][3], ListsOfListsOfCoordinatesY[8][3]))
+        tiles.placeOnTile(_9r5, tiles.getTileLocation(listsOfListsOfCoordinatesX[8][4], ListsOfListsOfCoordinatesY[8][4]))
+        tiles.placeOnTile(_9r6, tiles.getTileLocation(listsOfListsOfCoordinatesX[8][5], ListsOfListsOfCoordinatesY[8][5]))
+        tiles.setCurrentTilemap(ListOfTilemaps[8])
     }
 })
