@@ -191,329 +191,357 @@ scene.onOverlapTile(SpriteKind.hider, sprites.dungeon.stairEast, function (sprit
     }
 })
 info.onCountdownEnd(function () {
-    turn = "hider"
-    listOfCostumes = [
-    img`
-        ........................
-        ........................
-        ........................
-        ........................
-        ..........ffff..........
-        ........ff1111ff........
-        .......fb111111bf.......
-        .......f11111111f.......
-        ......fd11111111df......
-        ......fd11111111df......
-        ......fddd1111dddf......
-        ......fbdbfddfbdbf......
-        ......fcdcf11fcdcf......
-        .......fb111111bf.......
-        ......fffcdb1bdffff.....
-        ....fc111cbfbfc111cf....
-        ....f1b1b1ffff1b1b1f....
-        ....fbfbffffffbfbfbf....
-        .........ffffff.........
-        ...........fff..........
-        ........................
-        ........................
-        ........................
-        ........................
-        `,
-    img`
-        ......cc66......
-        .....c6576c.....
-        ....c677576c....
-        ....cc677666....
-        ...cc6c6667cc...
-        ..6c666777cc6c..
-        ..c76666766776..
-        ..c6777777776c..
-        ..cc67777776cc..
-        .c67cc76676676c.
-        .c777666667777c.
-        .c6777777777766.
-        .cc7767776776666
-        c676cc6766666776
-        c777766666677776
-        cc7777777777776c
-        .c676777677767c.
-        ..cc667666766c..
-        ...ccc6c66ccc...
-        .....cccccc.....
-        .......ee.......
-        ......eeee......
-        .....eeeeee.....
-        .......ee.......
-        `,
-    img`
-        . . . . . . b b b b . . . . . . 
-        . . . . . . b 4 4 4 b . . . . . 
-        . . . . . . b b 4 4 4 b . . . . 
-        . . . . . b 4 b b b 4 4 b . . . 
-        . . . . b d 5 5 5 4 b 4 4 b . . 
-        . . . . b 3 2 3 5 5 4 e 4 4 b . 
-        . . . b d 2 2 2 5 7 5 4 e 4 4 e 
-        . . . b 5 3 2 3 5 5 5 5 e e e e 
-        . . b d 7 5 5 5 3 2 3 5 5 e e e 
-        . . b 5 5 5 5 5 2 2 2 5 5 d e e 
-        . b 3 2 3 5 7 5 3 2 3 5 d d e 4 
-        . b 2 2 2 5 5 5 5 5 5 d d e 4 . 
-        b d 3 2 d 5 5 5 d d d 4 4 . . . 
-        b 5 5 5 5 d d 4 4 4 4 . . . . . 
-        4 d d d 4 4 4 . . . . . . . . . 
-        4 4 4 4 . . . . . . . . . . . . 
-        `,
-    img`
-        ..........666666666666..........
-        ........6667777777777666........
-        ......66677777777777777666......
-        .....6677777779999777777766.....
-        ....667777779966669977777766....
-        ....677777799668866117777776....
-        ...66777779966877861197777766...
-        ...66777799668677686699777766...
-        ...88777796688888888669777788...
-        ...88777788888888888888777788...
-        ...88977888679999997688877988...
-        ...88977886777777777768877988...
-        ...88997777777777777777779988...
-        ...88799777777777777777711788...
-        ...88679997777777777779117688...
-        ..cc866679999999999999976668cc..
-        .ccbc6666679999999999766666cbcc.
-        .fcbcc66666666666666666666ccbcf.
-        .fcbbcc666666666666666666ccbdcf.
-        .f8bbbccc66666666666666cccbddcf.
-        .f8cbbbbccccccccccccccccbdddbcf.
-        .f8ccbbbbbccccccccccccb111ddccf.
-        .f6ccccbbbddddddddddddd111dcccf.
-        .f6ccccccbbddddddddddddddbbcccf.
-        .f6cccccccccccccbbbbbbbbbdbcccf.
-        ..f6cccccccccbbbbbbbbbbbddbccf..
-        ..f6cccccccccbbbbbbbbbbbddbccf..
-        ..ff6ccccccccbbbbbbbbbbbddbcff..
-        ...ff6cccccccbbbbbbbbbbbddbff...
-        ....ffcccccccbbbbbbbbbbbdbff....
-        ......ffccccbbbbbbbbbbbbff......
-        ........ffffffffffffffff........
-        `,
-    img`
-        . . 6 6 6 6 . . 
-        . 6 d 4 4 4 6 . 
-        6 1 b 1 1 4 d 6 
-        c 1 b b 4 4 1 c 
-        . c b b b d c . 
-        . . c c c c . . 
-        `,
-    img`
-        ....................
-        ....................
-        ....................
-        ....................
-        ....................
-        ....................
-        .........888........
-        .........888........
-        ......888888888.....
-        ........fffff.......
-        .......9999999......
-        .......9999999......
-        .......9999999......
-        .......9999999......
-        .......9999999......
-        .......9999999......
-        ......888888888.....
-        ......fffffffff.....
-        ....................
-        ....................
-        `,
-    img`
-        . . . . . . . . . . . . . . . . 
-        . . . . . . 2 2 2 2 2 2 2 2 . . 
-        . . . . . 2 c 2 2 2 2 2 2 4 2 . 
-        . . . . 2 c c 2 2 2 2 2 2 4 c 2 
-        . . d 2 4 c c 2 4 4 4 4 4 4 c c 
-        . d 2 2 4 c b e e e e e e e 2 c 
-        . 2 2 2 4 b e e b b b e b b e 2 
-        . 2 2 2 2 2 e b b b b e b b b e 
-        . 2 2 2 2 e 2 2 2 2 2 e 2 2 2 e 
-        . 2 d d 2 e f e e e f e e e e e 
-        . d d 2 e e e f e e f e e e e e 
-        . e e e e e e e f f f e e e e e 
-        . e e e e f f f e e e e f f f f 
-        . . . e f f f f f e e f f f f f 
-        . . . . f f f f . . . . f f f . 
-        . . . . . . . . . . . . . . . . 
-        `,
-    img`
-        . . . . . . . . . . . . . . . . 
-        . . . . . . 3 3 3 3 3 3 3 3 . . 
-        . . . . . 3 c 3 3 3 3 3 3 d 3 . 
-        . . . . 3 c c 3 3 3 3 3 3 d c 3 
-        . . d 3 d c c 3 d d d d d d c c 
-        . d 3 3 d c b a a a a a a a 3 c 
-        . 3 3 3 d b a a b b b a b b a 3 
-        . 3 3 3 3 3 a b b b b a b b b a 
-        . 3 3 3 3 a 3 3 3 3 3 a 3 3 3 a 
-        . 3 d d 3 a f a a a f a a a a a 
-        . d d 3 a a a f a a f a a a a a 
-        . a a a a a a a f f f a a a a a 
-        . a a a a f f f a a a a f f f f 
-        . . . a f f f f f a a f f f f f 
-        . . . . f f f f . . . . f f f . 
-        . . . . . . . . . . . . . . . . 
-        `,
-    img`
-        ..............bbbbbbb...........
-        ...........bb66663333baa........
-        .........bb3367776333663aa......
-        ........b33333888333389633aa....
-        .......b3333333333333389633aa...
-        ......b34443333333333338633bae..
-        .....b3455433333333334443333ae..
-        ....b33322333dddd3333455233daee.
-        ...b3d333333dd3bbbb33322333dabe.
-        ..b3d333333d3bb33bb33333333da4e.
-        ..bd33333333b33aab3333333223a4ee
-        .b3d3663333b33aab33366332442b4ee
-        .bd3b983333a3aa3333387633ee3b4ee
-        .bd6983333baaa333333387633bb4bee
-        b3d6833333bba333333333863ba44ebe
-        bdd3333333bb3333333333333a44bebe
-        add666633333322333366333ba44bbbe
-        ad67776333332442336983d3a444b4e.
-        add888b333333ee3369833d3a44b44e.
-        add333333333333336833d3a444b4e..
-        a3dd3333344433333dddd3a444b44e..
-        ab33ddd325543333dd33aa444b44e...
-        .eabb3dd32233333baaa4444b44e....
-        .ebabb3d333d33baa444443b44e.....
-        ..ebaab3ddd3aaa4444433b44e......
-        ..eebbaab33a44444333b444e.......
-        ...eeebbaab444b333b4444e........
-        ....ebeeebbbbbbbb4444ee.........
-        .....eebbbb44444444ee...........
-        .......eeebbb444eee.............
-        ..........eeeeee................
-        ................................
-        `,
-    img`
-        . . . . c c c b b b b b . . . . 
-        . . c c b 4 4 4 4 4 4 b b b . . 
-        . c c 4 4 4 4 4 5 4 4 4 4 b c . 
-        . e 4 4 4 4 4 4 4 4 4 5 4 4 e . 
-        e b 4 5 4 4 5 4 4 4 4 4 4 4 b c 
-        e b 4 4 4 4 4 4 4 4 4 4 5 4 4 e 
-        e b b 4 4 4 4 4 4 4 4 4 4 4 b e 
-        . e b 4 4 4 4 4 5 4 4 4 4 b e . 
-        8 7 e e b 4 4 4 4 4 4 b e e 6 8 
-        8 7 2 e e e e e e e e e e 2 7 8 
-        e 6 6 2 2 2 2 2 2 2 2 2 2 6 c e 
-        e c 6 7 6 6 7 7 7 6 6 7 6 c c e 
-        e b e 8 8 c c 8 8 c c c 8 e b e 
-        e e b e c c e e e e e c e b e e 
-        . e e b b 4 4 4 4 4 4 4 4 e e . 
-        . . . c c c c c e e e e e . . . 
-        `,
-    img`
-        . . . . . f c c c c f . . . . . 
-        . . c c f b b 3 3 b b f c c . . 
-        . c b 3 3 b b c c b b 3 3 b c . 
-        . f 3 c c c b c c b c c c 3 f . 
-        f c b b c c b c c b c c b b c f 
-        c 3 c c b c c c c c c b c c 3 c 
-        c 3 c c c c c c c c c c c c 3 c 
-        . f b b c c c c c c c c b b f . 
-        . . f b b c 8 9 9 8 c b b f . . 
-        . . c c c f 9 3 1 9 f c c c . . 
-        . c 3 f f f 9 3 3 9 f f f 3 c . 
-        c 3 f f f f 8 9 9 8 f f f f 3 c 
-        f 3 c c f f f f f f f f c c 3 f 
-        f b 3 c b b f b b f b b c 3 b f 
-        . c b b 3 3 b 3 3 b 3 3 b b c . 
-        . . f f f f f f f f f f f f . . 
-        `,
-    img`
-        ...cccccccccccccccccc...
-        ..cbddddddddddddddddbc..
-        .cddddddddddddddddddddc.
-        .cddbbbbbbbbbbbbbbbbddc.
-        .cdbbbbbbbbbbbbbbbbbbdc.
-        .cdbbbbbbbbbbbbbbbbbbdc.
-        cbbbccccccccccccccccbbbc
-        cddcbddddddddddddddbcddc
-        cddcddddddddddddddddcddc
-        cddcddddddddddddddddcddc
-        cddcddddddddddddddddcddc
-        cbdcddddddddddddddddcdbc
-        ccbbbbbbbbbbbbbbbbbbbbcc
-        ccbbbbbbbbbbbbbbbbbbbbcc
-        cccccccccccccccccccccccc
-        ..cbbc............cbbc..
-        `,
-    img`
-        . . . . c c c c c c . . . . . . 
-        . . . c 6 7 7 7 7 6 c . . . . . 
-        . . c 7 7 7 7 7 7 7 7 c . . . . 
-        . c 6 7 7 7 7 7 7 7 7 6 c . . . 
-        . c 7 c 6 6 6 6 c 7 7 7 c . . . 
-        . f 7 6 f 6 6 f 6 7 7 7 f . . . 
-        . f 7 7 7 7 7 7 7 7 7 7 f . . . 
-        . . f 7 7 7 7 6 c 7 7 6 f c . . 
-        . . . f c c c c 7 7 6 f 7 7 c . 
-        . . c 7 2 7 7 7 6 c f 7 7 7 7 c 
-        . c 7 7 2 7 7 c f c 6 7 7 6 c c 
-        c 1 1 1 1 7 6 f c c 6 6 6 c . . 
-        f 1 1 1 1 1 6 6 c 6 6 6 6 f . . 
-        f 6 1 1 1 1 1 6 6 6 6 6 c f . . 
-        . f 6 1 1 1 1 1 1 6 6 6 f . . . 
-        . . c c c c c c c c c f . . . . 
-        `,
-    img`
-        ....................
-        ....................
-        ....................
-        ....................
-        ....................
-        ....................
-        ........dd55........
-        ........5555........
-        .........44.........
-        ........dddd........
-        ........dddd........
-        .......dddddd.......
-        .......dddddd.......
-        .......dddddd.......
-        .......dddddd.......
-        .......dddddd.......
-        .......dddddd.......
-        ........dddd........
-        ........4444........
-        ....................
-        `,
-    img`
-        . . f f f . . . . . . . . f f f 
-        . f f c c . . . . . . f c b b c 
-        f f c c . . . . . . f c b b c . 
-        f c f c . . . . . . f b c c c . 
-        f f f c c . c c . f c b b c c . 
-        f f c 3 c c 3 c c f b c b b c . 
-        f f b 3 b c 3 b c f b c c b c . 
-        . c 1 b b b 1 b c b b c c c . . 
-        . c 1 b b b 1 b b c c c c . . . 
-        c b b b b b b b b b c c . . . . 
-        c b 1 f f 1 c b b b b f . . . . 
-        f f 1 f f 1 f b b b b f c . . . 
-        f f 2 2 2 2 f b b b b f c c . . 
-        . f 2 2 2 2 b b b b c f . . . . 
-        . . f b b b b b b c f . . . . . 
-        . . . f f f f f f f . . . . . . 
-        `
-    ]
-    hider = sprites.create(listOfCostumes[randint(0, 14)], SpriteKind.hider)
-    tiles.placeOnTile(hider, tiles.getTileLocation(5, 5))
-    seeker.destroy()
-    game.splash("Hider, you have 30 seconds to hide!")
+    if (turn == "seeker") {
+        turn = "hider"
+        listOfCostumes = [
+        img`
+            ........................
+            ........................
+            ........................
+            ........................
+            ..........ffff..........
+            ........ff1111ff........
+            .......fb111111bf.......
+            .......f11111111f.......
+            ......fd11111111df......
+            ......fd11111111df......
+            ......fddd1111dddf......
+            ......fbdbfddfbdbf......
+            ......fcdcf11fcdcf......
+            .......fb111111bf.......
+            ......fffcdb1bdffff.....
+            ....fc111cbfbfc111cf....
+            ....f1b1b1ffff1b1b1f....
+            ....fbfbffffffbfbfbf....
+            .........ffffff.........
+            ...........fff..........
+            ........................
+            ........................
+            ........................
+            ........................
+            `,
+        img`
+            ......cc66......
+            .....c6576c.....
+            ....c677576c....
+            ....cc677666....
+            ...cc6c6667cc...
+            ..6c666777cc6c..
+            ..c76666766776..
+            ..c6777777776c..
+            ..cc67777776cc..
+            .c67cc76676676c.
+            .c777666667777c.
+            .c6777777777766.
+            .cc7767776776666
+            c676cc6766666776
+            c777766666677776
+            cc7777777777776c
+            .c676777677767c.
+            ..cc667666766c..
+            ...ccc6c66ccc...
+            .....cccccc.....
+            .......ee.......
+            ......eeee......
+            .....eeeeee.....
+            .......ee.......
+            `,
+        img`
+            . . . . . . b b b b . . . . . . 
+            . . . . . . b 4 4 4 b . . . . . 
+            . . . . . . b b 4 4 4 b . . . . 
+            . . . . . b 4 b b b 4 4 b . . . 
+            . . . . b d 5 5 5 4 b 4 4 b . . 
+            . . . . b 3 2 3 5 5 4 e 4 4 b . 
+            . . . b d 2 2 2 5 7 5 4 e 4 4 e 
+            . . . b 5 3 2 3 5 5 5 5 e e e e 
+            . . b d 7 5 5 5 3 2 3 5 5 e e e 
+            . . b 5 5 5 5 5 2 2 2 5 5 d e e 
+            . b 3 2 3 5 7 5 3 2 3 5 d d e 4 
+            . b 2 2 2 5 5 5 5 5 5 d d e 4 . 
+            b d 3 2 d 5 5 5 d d d 4 4 . . . 
+            b 5 5 5 5 d d 4 4 4 4 . . . . . 
+            4 d d d 4 4 4 . . . . . . . . . 
+            4 4 4 4 . . . . . . . . . . . . 
+            `,
+        img`
+            ..........666666666666..........
+            ........6667777777777666........
+            ......66677777777777777666......
+            .....6677777779999777777766.....
+            ....667777779966669977777766....
+            ....677777799668866117777776....
+            ...66777779966877861197777766...
+            ...66777799668677686699777766...
+            ...88777796688888888669777788...
+            ...88777788888888888888777788...
+            ...88977888679999997688877988...
+            ...88977886777777777768877988...
+            ...88997777777777777777779988...
+            ...88799777777777777777711788...
+            ...88679997777777777779117688...
+            ..cc866679999999999999976668cc..
+            .ccbc6666679999999999766666cbcc.
+            .fcbcc66666666666666666666ccbcf.
+            .fcbbcc666666666666666666ccbdcf.
+            .f8bbbccc66666666666666cccbddcf.
+            .f8cbbbbccccccccccccccccbdddbcf.
+            .f8ccbbbbbccccccccccccb111ddccf.
+            .f6ccccbbbddddddddddddd111dcccf.
+            .f6ccccccbbddddddddddddddbbcccf.
+            .f6cccccccccccccbbbbbbbbbdbcccf.
+            ..f6cccccccccbbbbbbbbbbbddbccf..
+            ..f6cccccccccbbbbbbbbbbbddbccf..
+            ..ff6ccccccccbbbbbbbbbbbddbcff..
+            ...ff6cccccccbbbbbbbbbbbddbff...
+            ....ffcccccccbbbbbbbbbbbdbff....
+            ......ffccccbbbbbbbbbbbbff......
+            ........ffffffffffffffff........
+            `,
+        img`
+            . . 6 6 6 6 . . 
+            . 6 d 4 4 4 6 . 
+            6 1 b 1 1 4 d 6 
+            c 1 b b 4 4 1 c 
+            . c b b b d c . 
+            . . c c c c . . 
+            `,
+        img`
+            ....................
+            ....................
+            ....................
+            ....................
+            ....................
+            ....................
+            .........888........
+            .........888........
+            ......888888888.....
+            ........fffff.......
+            .......9999999......
+            .......9999999......
+            .......9999999......
+            .......9999999......
+            .......9999999......
+            .......9999999......
+            ......888888888.....
+            ......fffffffff.....
+            ....................
+            ....................
+            `,
+        img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . 2 2 2 2 2 2 2 2 . . 
+            . . . . . 2 c 2 2 2 2 2 2 4 2 . 
+            . . . . 2 c c 2 2 2 2 2 2 4 c 2 
+            . . d 2 4 c c 2 4 4 4 4 4 4 c c 
+            . d 2 2 4 c b e e e e e e e 2 c 
+            . 2 2 2 4 b e e b b b e b b e 2 
+            . 2 2 2 2 2 e b b b b e b b b e 
+            . 2 2 2 2 e 2 2 2 2 2 e 2 2 2 e 
+            . 2 d d 2 e f e e e f e e e e e 
+            . d d 2 e e e f e e f e e e e e 
+            . e e e e e e e f f f e e e e e 
+            . e e e e f f f e e e e f f f f 
+            . . . e f f f f f e e f f f f f 
+            . . . . f f f f . . . . f f f . 
+            . . . . . . . . . . . . . . . . 
+            `,
+        img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . 3 3 3 3 3 3 3 3 . . 
+            . . . . . 3 c 3 3 3 3 3 3 d 3 . 
+            . . . . 3 c c 3 3 3 3 3 3 d c 3 
+            . . d 3 d c c 3 d d d d d d c c 
+            . d 3 3 d c b a a a a a a a 3 c 
+            . 3 3 3 d b a a b b b a b b a 3 
+            . 3 3 3 3 3 a b b b b a b b b a 
+            . 3 3 3 3 a 3 3 3 3 3 a 3 3 3 a 
+            . 3 d d 3 a f a a a f a a a a a 
+            . d d 3 a a a f a a f a a a a a 
+            . a a a a a a a f f f a a a a a 
+            . a a a a f f f a a a a f f f f 
+            . . . a f f f f f a a f f f f f 
+            . . . . f f f f . . . . f f f . 
+            . . . . . . . . . . . . . . . . 
+            `,
+        img`
+            ..............bbbbbbb...........
+            ...........bb66663333baa........
+            .........bb3367776333663aa......
+            ........b33333888333389633aa....
+            .......b3333333333333389633aa...
+            ......b34443333333333338633bae..
+            .....b3455433333333334443333ae..
+            ....b33322333dddd3333455233daee.
+            ...b3d333333dd3bbbb33322333dabe.
+            ..b3d333333d3bb33bb33333333da4e.
+            ..bd33333333b33aab3333333223a4ee
+            .b3d3663333b33aab33366332442b4ee
+            .bd3b983333a3aa3333387633ee3b4ee
+            .bd6983333baaa333333387633bb4bee
+            b3d6833333bba333333333863ba44ebe
+            bdd3333333bb3333333333333a44bebe
+            add666633333322333366333ba44bbbe
+            ad67776333332442336983d3a444b4e.
+            add888b333333ee3369833d3a44b44e.
+            add333333333333336833d3a444b4e..
+            a3dd3333344433333dddd3a444b44e..
+            ab33ddd325543333dd33aa444b44e...
+            .eabb3dd32233333baaa4444b44e....
+            .ebabb3d333d33baa444443b44e.....
+            ..ebaab3ddd3aaa4444433b44e......
+            ..eebbaab33a44444333b444e.......
+            ...eeebbaab444b333b4444e........
+            ....ebeeebbbbbbbb4444ee.........
+            .....eebbbb44444444ee...........
+            .......eeebbb444eee.............
+            ..........eeeeee................
+            ................................
+            `,
+        img`
+            . . . . c c c b b b b b . . . . 
+            . . c c b 4 4 4 4 4 4 b b b . . 
+            . c c 4 4 4 4 4 5 4 4 4 4 b c . 
+            . e 4 4 4 4 4 4 4 4 4 5 4 4 e . 
+            e b 4 5 4 4 5 4 4 4 4 4 4 4 b c 
+            e b 4 4 4 4 4 4 4 4 4 4 5 4 4 e 
+            e b b 4 4 4 4 4 4 4 4 4 4 4 b e 
+            . e b 4 4 4 4 4 5 4 4 4 4 b e . 
+            8 7 e e b 4 4 4 4 4 4 b e e 6 8 
+            8 7 2 e e e e e e e e e e 2 7 8 
+            e 6 6 2 2 2 2 2 2 2 2 2 2 6 c e 
+            e c 6 7 6 6 7 7 7 6 6 7 6 c c e 
+            e b e 8 8 c c 8 8 c c c 8 e b e 
+            e e b e c c e e e e e c e b e e 
+            . e e b b 4 4 4 4 4 4 4 4 e e . 
+            . . . c c c c c e e e e e . . . 
+            `,
+        img`
+            . . . . . f c c c c f . . . . . 
+            . . c c f b b 3 3 b b f c c . . 
+            . c b 3 3 b b c c b b 3 3 b c . 
+            . f 3 c c c b c c b c c c 3 f . 
+            f c b b c c b c c b c c b b c f 
+            c 3 c c b c c c c c c b c c 3 c 
+            c 3 c c c c c c c c c c c c 3 c 
+            . f b b c c c c c c c c b b f . 
+            . . f b b c 8 9 9 8 c b b f . . 
+            . . c c c f 9 3 1 9 f c c c . . 
+            . c 3 f f f 9 3 3 9 f f f 3 c . 
+            c 3 f f f f 8 9 9 8 f f f f 3 c 
+            f 3 c c f f f f f f f f c c 3 f 
+            f b 3 c b b f b b f b b c 3 b f 
+            . c b b 3 3 b 3 3 b 3 3 b b c . 
+            . . f f f f f f f f f f f f . . 
+            `,
+        img`
+            ...cccccccccccccccccc...
+            ..cbddddddddddddddddbc..
+            .cddddddddddddddddddddc.
+            .cddbbbbbbbbbbbbbbbbddc.
+            .cdbbbbbbbbbbbbbbbbbbdc.
+            .cdbbbbbbbbbbbbbbbbbbdc.
+            cbbbccccccccccccccccbbbc
+            cddcbddddddddddddddbcddc
+            cddcddddddddddddddddcddc
+            cddcddddddddddddddddcddc
+            cddcddddddddddddddddcddc
+            cbdcddddddddddddddddcdbc
+            ccbbbbbbbbbbbbbbbbbbbbcc
+            ccbbbbbbbbbbbbbbbbbbbbcc
+            cccccccccccccccccccccccc
+            ..cbbc............cbbc..
+            `,
+        img`
+            . . . . c c c c c c . . . . . . 
+            . . . c 6 7 7 7 7 6 c . . . . . 
+            . . c 7 7 7 7 7 7 7 7 c . . . . 
+            . c 6 7 7 7 7 7 7 7 7 6 c . . . 
+            . c 7 c 6 6 6 6 c 7 7 7 c . . . 
+            . f 7 6 f 6 6 f 6 7 7 7 f . . . 
+            . f 7 7 7 7 7 7 7 7 7 7 f . . . 
+            . . f 7 7 7 7 6 c 7 7 6 f c . . 
+            . . . f c c c c 7 7 6 f 7 7 c . 
+            . . c 7 2 7 7 7 6 c f 7 7 7 7 c 
+            . c 7 7 2 7 7 c f c 6 7 7 6 c c 
+            c 1 1 1 1 7 6 f c c 6 6 6 c . . 
+            f 1 1 1 1 1 6 6 c 6 6 6 6 f . . 
+            f 6 1 1 1 1 1 6 6 6 6 6 c f . . 
+            . f 6 1 1 1 1 1 1 6 6 6 f . . . 
+            . . c c c c c c c c c f . . . . 
+            `,
+        img`
+            ....................
+            ....................
+            ....................
+            ....................
+            ....................
+            ....................
+            ........dd55........
+            ........5555........
+            .........44.........
+            ........dddd........
+            ........dddd........
+            .......dddddd.......
+            .......dddddd.......
+            .......dddddd.......
+            .......dddddd.......
+            .......dddddd.......
+            .......dddddd.......
+            ........dddd........
+            ........4444........
+            ....................
+            `,
+        img`
+            . . f f f . . . . . . . . f f f 
+            . f f c c . . . . . . f c b b c 
+            f f c c . . . . . . f c b b c . 
+            f c f c . . . . . . f b c c c . 
+            f f f c c . c c . f c b b c c . 
+            f f c 3 c c 3 c c f b c b b c . 
+            f f b 3 b c 3 b c f b c c b c . 
+            . c 1 b b b 1 b c b b c c c . . 
+            . c 1 b b b 1 b b c c c c . . . 
+            c b b b b b b b b b c c . . . . 
+            c b 1 f f 1 c b b b b f . . . . 
+            f f 1 f f 1 f b b b b f c . . . 
+            f f 2 2 2 2 f b b b b f c c . . 
+            . f 2 2 2 2 b b b b c f . . . . 
+            . . f b b b b b b c f . . . . . 
+            . . . f f f f f f f . . . . . . 
+            `
+        ]
+        hider = sprites.create(listOfCostumes[randint(0, 14)], SpriteKind.hider)
+        tiles.placeOnTile(hider, tiles.getTileLocation(5, 5))
+        seeker.destroy()
+        game.splash("Hider, you have 30 seconds to hide!")
+        info.startCountdown(2)
+    } else {
+        hiderTilemap = currentTilemap
+        location = hider.tilemapLocation()
+        hidden = true
+        currentTilemap = 1
+        turn = "seeker"
+        seeker = sprites.create(img`
+            . . . . f f f f . . . . . 
+            . . f f f f f f f f . . . 
+            . f f f f f f c f f f . . 
+            f f f f f f c c f f f c . 
+            f f f c f f f f f f f c . 
+            c c c f f f e e f f c c . 
+            f f f f f e e f f c c f . 
+            f f f b f e e f b f f f . 
+            . f 4 1 f 4 4 f 1 4 f . . 
+            . f e 4 4 4 4 4 4 e f . . 
+            . f f f e e e e f f f . . 
+            f e f b 7 7 7 7 b f e f . 
+            e 4 f 7 7 7 7 7 7 f 4 e . 
+            e e f 6 6 6 6 6 6 f e e . 
+            . . . f f f f f f . . . . 
+            . . . f f . . f f . . . . 
+            `, SpriteKind.hider)
+        tiles.placeOnTile(seeker, tiles.getTileLocation(5, 5))
+    }
 })
 scene.onOverlapTile(SpriteKind.hider, sprites.dungeon.stairWest, function (sprite, location) {
     if (currentTilemap == 6) {
@@ -738,8 +766,11 @@ scene.onOverlapTile(SpriteKind.Enemy, sprites.dungeon.stairEast, function (sprit
         tiles.placeOnTile(seeker, tiles.getTileLocation(13, 8))
     }
 })
+let location: tiles.Location = null
+let hiderTilemap = 0
 let listOfCostumes: Image[] = []
 let hider: Sprite = null
+let hidden = false
 let turn = ""
 let seeker: Sprite = null
 let currentTilemap = 0
@@ -2282,6 +2313,7 @@ let _9r6 = sprites.create(img`
     `, SpriteKind.Player)
 _9r6.setScale(0.5, ScaleAnchor.Middle)
 turn = "seeker"
+hidden = false
 game.splash("Seeker, you have a minute to memorize the tilemaps!")
 info.startCountdown(2)
 /**
@@ -2293,8 +2325,6 @@ forever(function () {
     }
 })
 forever(function () {
-    scene.cameraFollowSprite(seeker)
-    controller.moveSprite(seeker)
     if (currentTilemap == 1) {
         _2r1.setPosition(1000, 0)
         _2r2.setPosition(1000, 0)
@@ -2344,6 +2374,13 @@ forever(function () {
         _9r4.setPosition(1000, 0)
         _9r5.setPosition(1000, 0)
         _9r6.setPosition(1000, 0)
+        if (hidden == true) {
+            if (hiderTilemap == 1) {
+                tiles.placeOnTile(hider, tiles.getTileLocation(location.column, location.row))
+            } else {
+                hider.setPosition(1000, 0)
+            }
+        }
         tiles.placeOnTile(_1r1, tiles.getTileLocation(listsOfListsOfCoordinatesX[0][0], ListsOfListsOfCoordinatesY[0][0]))
         tiles.placeOnTile(_1r2, tiles.getTileLocation(listsOfListsOfCoordinatesX[0][1], ListsOfListsOfCoordinatesY[0][1]))
         tiles.placeOnTile(_1r3, tiles.getTileLocation(listsOfListsOfCoordinatesX[0][2], ListsOfListsOfCoordinatesY[0][2]))
@@ -2401,6 +2438,13 @@ forever(function () {
         _9r4.setPosition(1000, 0)
         _9r5.setPosition(1000, 0)
         _9r6.setPosition(1000, 0)
+        if (hidden == true) {
+            if (hiderTilemap == 2) {
+                tiles.placeOnTile(hider, tiles.getTileLocation(location.column, location.row))
+            } else {
+                hider.setPosition(1000, 0)
+            }
+        }
         tiles.placeOnTile(_2r1, tiles.getTileLocation(listsOfListsOfCoordinatesX[1][0], ListsOfListsOfCoordinatesY[1][0]))
         tiles.placeOnTile(_2r2, tiles.getTileLocation(listsOfListsOfCoordinatesX[1][1], ListsOfListsOfCoordinatesY[1][1]))
         tiles.placeOnTile(_2r3, tiles.getTileLocation(listsOfListsOfCoordinatesX[1][2], ListsOfListsOfCoordinatesY[1][2]))
@@ -2458,6 +2502,13 @@ forever(function () {
         _9r4.setPosition(1000, 0)
         _9r5.setPosition(1000, 0)
         _9r6.setPosition(1000, 0)
+        if (hidden == true) {
+            if (hiderTilemap == 3) {
+                tiles.placeOnTile(hider, tiles.getTileLocation(location.column, location.row))
+            } else {
+                hider.setPosition(1000, 0)
+            }
+        }
         tiles.placeOnTile(_3r1, tiles.getTileLocation(listsOfListsOfCoordinatesX[2][0], ListsOfListsOfCoordinatesY[2][0]))
         tiles.placeOnTile(_3r2, tiles.getTileLocation(listsOfListsOfCoordinatesX[2][1], ListsOfListsOfCoordinatesY[2][1]))
         tiles.placeOnTile(_3r3, tiles.getTileLocation(listsOfListsOfCoordinatesX[2][2], ListsOfListsOfCoordinatesY[2][2]))
@@ -2515,6 +2566,13 @@ forever(function () {
         _9r4.setPosition(1000, 0)
         _9r5.setPosition(1000, 0)
         _9r6.setPosition(1000, 0)
+        if (hidden == true) {
+            if (hiderTilemap == 4) {
+                tiles.placeOnTile(hider, tiles.getTileLocation(location.column, location.row))
+            } else {
+                hider.setPosition(1000, 0)
+            }
+        }
         tiles.placeOnTile(_4r1, tiles.getTileLocation(listsOfListsOfCoordinatesX[3][0], ListsOfListsOfCoordinatesY[3][0]))
         tiles.placeOnTile(_4r2, tiles.getTileLocation(listsOfListsOfCoordinatesX[3][1], ListsOfListsOfCoordinatesY[3][1]))
         tiles.placeOnTile(_4r3, tiles.getTileLocation(listsOfListsOfCoordinatesX[3][2], ListsOfListsOfCoordinatesY[3][2]))
@@ -2572,6 +2630,13 @@ forever(function () {
         _9r4.setPosition(1000, 0)
         _9r5.setPosition(1000, 0)
         _9r6.setPosition(1000, 0)
+        if (hidden == true) {
+            if (hiderTilemap == 5) {
+                tiles.placeOnTile(hider, tiles.getTileLocation(location.column, location.row))
+            } else {
+                hider.setPosition(1000, 0)
+            }
+        }
         tiles.placeOnTile(_5r1, tiles.getTileLocation(listsOfListsOfCoordinatesX[4][0], ListsOfListsOfCoordinatesY[4][0]))
         tiles.placeOnTile(_5r2, tiles.getTileLocation(listsOfListsOfCoordinatesX[4][1], ListsOfListsOfCoordinatesY[4][1]))
         tiles.placeOnTile(_5r3, tiles.getTileLocation(listsOfListsOfCoordinatesX[4][2], ListsOfListsOfCoordinatesY[4][2]))
@@ -2629,6 +2694,13 @@ forever(function () {
         _9r4.setPosition(1000, 0)
         _9r5.setPosition(1000, 0)
         _9r6.setPosition(1000, 0)
+        if (hidden == true) {
+            if (hiderTilemap == 6) {
+                tiles.placeOnTile(hider, tiles.getTileLocation(location.column, location.row))
+            } else {
+                hider.setPosition(1000, 0)
+            }
+        }
         tiles.placeOnTile(_6r1, tiles.getTileLocation(listsOfListsOfCoordinatesX[5][0], ListsOfListsOfCoordinatesY[5][0]))
         tiles.placeOnTile(_6r2, tiles.getTileLocation(listsOfListsOfCoordinatesX[5][1], ListsOfListsOfCoordinatesY[5][1]))
         tiles.placeOnTile(_6r3, tiles.getTileLocation(listsOfListsOfCoordinatesX[5][2], ListsOfListsOfCoordinatesY[5][2]))
@@ -2686,6 +2758,13 @@ forever(function () {
         _9r4.setPosition(1000, 0)
         _9r5.setPosition(1000, 0)
         _9r6.setPosition(1000, 0)
+        if (hidden == true) {
+            if (hiderTilemap == 7) {
+                tiles.placeOnTile(hider, tiles.getTileLocation(location.column, location.row))
+            } else {
+                hider.setPosition(1000, 0)
+            }
+        }
         tiles.placeOnTile(_7r1, tiles.getTileLocation(listsOfListsOfCoordinatesX[6][0], ListsOfListsOfCoordinatesY[6][0]))
         tiles.placeOnTile(_7r2, tiles.getTileLocation(listsOfListsOfCoordinatesX[6][1], ListsOfListsOfCoordinatesY[6][1]))
         tiles.placeOnTile(_7r3, tiles.getTileLocation(listsOfListsOfCoordinatesX[6][2], ListsOfListsOfCoordinatesY[6][2]))
@@ -2743,6 +2822,13 @@ forever(function () {
         _9r4.setPosition(1000, 0)
         _9r5.setPosition(1000, 0)
         _9r6.setPosition(1000, 0)
+        if (hidden == true) {
+            if (hiderTilemap == 8) {
+                tiles.placeOnTile(hider, tiles.getTileLocation(location.column, location.row))
+            } else {
+                hider.setPosition(1000, 0)
+            }
+        }
         tiles.placeOnTile(_8r1, tiles.getTileLocation(listsOfListsOfCoordinatesX[7][0], ListsOfListsOfCoordinatesY[7][0]))
         tiles.placeOnTile(_8r2, tiles.getTileLocation(listsOfListsOfCoordinatesX[7][1], ListsOfListsOfCoordinatesY[7][1]))
         tiles.placeOnTile(_8r3, tiles.getTileLocation(listsOfListsOfCoordinatesX[7][2], ListsOfListsOfCoordinatesY[7][2]))
@@ -2800,6 +2886,13 @@ forever(function () {
         _8r4.setPosition(1000, 0)
         _8r5.setPosition(1000, 0)
         _8r6.setPosition(1000, 0)
+        if (hidden == true) {
+            if (hiderTilemap == 9) {
+                tiles.placeOnTile(hider, tiles.getTileLocation(location.column, location.row))
+            } else {
+                hider.setPosition(1000, 0)
+            }
+        }
         tiles.placeOnTile(_9r1, tiles.getTileLocation(listsOfListsOfCoordinatesX[8][0], ListsOfListsOfCoordinatesY[8][0]))
         tiles.placeOnTile(_9r2, tiles.getTileLocation(listsOfListsOfCoordinatesX[8][1], ListsOfListsOfCoordinatesY[8][1]))
         tiles.placeOnTile(_9r3, tiles.getTileLocation(listsOfListsOfCoordinatesX[8][2], ListsOfListsOfCoordinatesY[8][2]))
@@ -2811,10 +2904,10 @@ forever(function () {
 })
 forever(function () {
     if (turn == "seeker") {
-        controller.moveSprite(seeker)
+        controller.moveSprite(seeker, 100, 100)
         scene.cameraFollowSprite(seeker)
     } else {
-        controller.moveSprite(hider)
+        controller.moveSprite(hider, 100, 100)
         scene.cameraFollowSprite(hider)
     }
 })
