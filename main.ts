@@ -89,6 +89,12 @@ scene.onOverlapTile(SpriteKind.hider, sprites.dungeon.stairSouth, function (spri
         tiles.placeOnTile(hider, tiles.getTileLocation(8, 13))
     }
 })
+sprites.onOverlap(SpriteKind.Enemy, SpriteKind.hider, function (sprite, otherSprite) {
+    if (controller.A.isPressed()) {
+        game.splash("Hider Found!")
+        game.over(true)
+    }
+})
 scene.onOverlapTile(SpriteKind.Enemy, sprites.dungeon.stairNorth, function (sprite, location) {
     if (currentTilemap == 6) {
         currentTilemap = 4
@@ -514,9 +520,9 @@ info.onCountdownEnd(function () {
         hider = sprites.create(listOfCostumes[randint(0, 14)], SpriteKind.hider)
         tiles.placeOnTile(hider, tiles.getTileLocation(5, 5))
         seeker.destroy()
-        game.splash("Hider, you have 30 seconds to hide!")
-        info.startCountdown(2)
-    } else {
+        game.splash("(IJKL)Hider, you have 30 seconds to hide!")
+        info.startCountdown(30)
+    } else if (turn == "hider") {
         hiderTilemap = currentTilemap
         location = hider.tilemapLocation()
         hidden = true
@@ -539,8 +545,14 @@ info.onCountdownEnd(function () {
             e e f 6 6 6 6 6 6 f e e . 
             . . . f f f f f f . . . . 
             . . . f f . . f f . . . . 
-            `, SpriteKind.hider)
+            `, SpriteKind.Enemy)
         tiles.placeOnTile(seeker, tiles.getTileLocation(5, 5))
+        game.splash("(WASD)You have 2 minutes to find them!")
+        info.startCountdown(120)
+        turn = "end"
+    } else {
+        game.splash("Hider Wins!")
+        game.over(true)
     }
 })
 scene.onOverlapTile(SpriteKind.hider, sprites.dungeon.stairWest, function (sprite, location) {
@@ -2314,11 +2326,8 @@ let _9r6 = sprites.create(img`
 _9r6.setScale(0.5, ScaleAnchor.Middle)
 turn = "seeker"
 hidden = false
-game.splash("Seeker, you have a minute to memorize the tilemaps!")
-info.startCountdown(2)
-/**
- * animation
- */
+game.splash("(WASD)Seeker, you have a minute to memorize the tilemaps!")
+info.startCountdown(60)
 forever(function () {
     if (!(controller.down.isPressed()) && (!(controller.up.isPressed()) && (!(controller.left.isPressed()) && !(controller.right.isPressed())))) {
         animation.stopAnimation(animation.AnimationTypes.All, seeker)
@@ -2903,11 +2912,11 @@ forever(function () {
     }
 })
 forever(function () {
-    if (turn == "seeker") {
-        controller.moveSprite(seeker, 100, 100)
+    if (turn == "seeker" || turn == "end") {
         scene.cameraFollowSprite(seeker)
+        controller.player1.moveSprite(seeker)
     } else {
-        controller.moveSprite(hider, 100, 100)
         scene.cameraFollowSprite(hider)
+        controller.player2.moveSprite(hider)
     }
 })
