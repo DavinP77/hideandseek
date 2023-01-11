@@ -3,11 +3,7 @@ namespace SpriteKind {
     export const hider = SpriteKind.create()
 }
 /**
- * 6  2  7
- * 
- * 4  1  5
- * 
- * 8  3  9
+ * we attempted to put in a while loop, but it cancelled out our forever loops
  */
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
@@ -196,6 +192,9 @@ scene.onOverlapTile(SpriteKind.hider, sprites.dungeon.stairEast, function (sprit
         tiles.placeOnTile(hider, tiles.getTileLocation(13, 8))
     }
 })
+/**
+ * objects the hider may become
+ */
 info.onCountdownEnd(function () {
     if (turn == "seeker") {
         turn = "hider"
@@ -521,7 +520,8 @@ info.onCountdownEnd(function () {
         tiles.placeOnTile(hider, tiles.getTileLocation(5, 5))
         seeker.destroy()
         game.splash("(IJKL)Hider, you have 30 seconds to hide!")
-        info.startCountdown(30)
+        currentTilemap = 1
+        info.startCountdown(5)
     } else if (turn == "hider") {
         hiderTilemap = currentTilemap
         location = hider.tilemapLocation()
@@ -547,8 +547,8 @@ info.onCountdownEnd(function () {
             . . . f f . . f f . . . . 
             `, SpriteKind.Enemy)
         tiles.placeOnTile(seeker, tiles.getTileLocation(5, 5))
-        game.splash("(WASD)You have 2 minutes to find them!")
-        info.startCountdown(120)
+        game.splash("(WASD)You have 2 minutes to find them! (USE A BUTTON)")
+        info.startCountdown(5)
         turn = "end"
     } else {
         game.splash("Hider Wins!")
@@ -576,6 +576,9 @@ scene.onOverlapTile(SpriteKind.hider, sprites.dungeon.stairWest, function (sprit
         tiles.placeOnTile(hider, tiles.getTileLocation(2, 8))
     }
 })
+/**
+ * This is the code for teleportation when either seeker or hider overlaps stairs
+ */
 scene.onOverlapTile(SpriteKind.hider, sprites.dungeon.stairNorth, function (sprite, location) {
     if (currentTilemap == 6) {
         currentTilemap = 4
@@ -736,6 +739,19 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     true
     )
 })
+function randomCoordinates (list: number[][]) {
+    for (let index = 0; index <= 8; index++) {
+        list[index] = [
+        randint(0, 15),
+        randint(0, 15),
+        randint(0, 15),
+        randint(0, 15),
+        randint(0, 15),
+        randint(0, 15)
+        ]
+    }
+    return list
+}
 scene.onOverlapTile(SpriteKind.Enemy, sprites.dungeon.stairWest, function (sprite, location) {
     if (currentTilemap == 6) {
         currentTilemap = 2
@@ -778,6 +794,24 @@ scene.onOverlapTile(SpriteKind.Enemy, sprites.dungeon.stairEast, function (sprit
         tiles.placeOnTile(seeker, tiles.getTileLocation(13, 8))
     }
 })
+/**
+ * 6  2  7
+ * 
+ * 4  1  5
+ * 
+ * 8  3  9
+ * 
+ * tile maps are laid out like this
+ */
+/**
+ * setting empty arrays for the random coordinates
+ */
+/**
+ * function for making the random coordinates, actual function is to the left
+ */
+/**
+ * setting the sprites and their sizes
+ */
 let location: tiles.Location = null
 let hiderTilemap = 0
 let listOfCostumes: Image[] = []
@@ -945,26 +979,8 @@ let ListsOfListsOfCoordinatesY = [
 0
 ]
 ]
-for (let index = 0; index <= 8; index++) {
-    listsOfListsOfCoordinatesX[index] = [
-    randint(0, 15),
-    randint(0, 15),
-    randint(0, 15),
-    randint(0, 15),
-    randint(0, 15),
-    randint(0, 15)
-    ]
-}
-for (let index = 0; index <= 8; index++) {
-    ListsOfListsOfCoordinatesY[index] = [
-    randint(0, 15),
-    randint(0, 15),
-    randint(0, 15),
-    randint(0, 15),
-    randint(0, 15),
-    randint(0, 15)
-    ]
-}
+listsOfListsOfCoordinatesX = randomCoordinates(listsOfListsOfCoordinatesX)
+ListsOfListsOfCoordinatesY = randomCoordinates(ListsOfListsOfCoordinatesY)
 currentTilemap = 1
 seeker = sprites.create(img`
     . . . . f f f f . . . . . 
@@ -2327,12 +2343,30 @@ _9r6.setScale(0.5, ScaleAnchor.Middle)
 turn = "seeker"
 hidden = false
 game.splash("(WASD)Seeker, you have a minute to memorize the tilemaps!")
-info.startCountdown(60)
+info.startCountdown(5)
+/**
+ * stops animation when not moving
+ */
 forever(function () {
     if (!(controller.down.isPressed()) && (!(controller.up.isPressed()) && (!(controller.left.isPressed()) && !(controller.right.isPressed())))) {
         animation.stopAnimation(animation.AnimationTypes.All, seeker)
     }
 })
+/**
+ * animation
+ */
+/**
+ * teleports the sprites that are not in the tile map out of the area. This has to repeated 8 more times
+ */
+/**
+ * places the hider where they hid
+ */
+/**
+ * places the sprites that belong on the tile map where they need to be
+ */
+/**
+ * how to seek
+ */
 forever(function () {
     if (currentTilemap == 1) {
         _2r1.setPosition(1000, 0)
@@ -2911,6 +2945,9 @@ forever(function () {
         tiles.setCurrentTilemap(ListOfTilemaps[8])
     }
 })
+/**
+ * if it is their turn they can move
+ */
 forever(function () {
     if (turn == "seeker" || turn == "end") {
         scene.cameraFollowSprite(seeker)
