@@ -521,7 +521,7 @@ info.onCountdownEnd(function () {
         seeker.destroy()
         game.splash("(IJKL)Hider, you have 30 seconds to hide!")
         currentTilemap = 1
-        info.startCountdown(5)
+        info.startCountdown(30)
     } else if (turn == "hider") {
         hiderTilemap = currentTilemap
         location = hider.tilemapLocation()
@@ -548,7 +548,7 @@ info.onCountdownEnd(function () {
             `, SpriteKind.Enemy)
         tiles.placeOnTile(seeker, tiles.getTileLocation(5, 5))
         game.splash("(WASD)You have 2 minutes to find them! (USE A BUTTON)")
-        info.startCountdown(5)
+        info.startCountdown(120)
         turn = "end"
     } else {
         game.splash("Hider Wins!")
@@ -2343,7 +2343,7 @@ _9r6.setScale(0.5, ScaleAnchor.Middle)
 turn = "seeker"
 hidden = false
 game.splash("(WASD)Seeker, you have a minute to memorize the tilemaps!")
-info.startCountdown(5)
+info.startCountdown(60)
 /**
  * stops animation when not moving
  */
